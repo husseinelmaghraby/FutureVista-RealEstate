@@ -237,26 +237,18 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Right actions */}
+       {/* Right actions */}
         <div className="flex items-center gap-2 shrink-0">
-          <button
-            className={`hidden items-center gap-1 rounded-full border px-3 py-1.5 text-[12px] font-semibold transition-all sm:flex ${
-              scrolled
-                ? 'border-brand-600 text-brand-600 hover:bg-brand-600 hover:text-white'
-                : 'border-white/80 text-white hover:bg-white hover:text-ink-900'
-            }`}
-          >
-            <Tag className="h-3 w-3" /> Valuation
-          </button>
-          <button
+          <Link
+            to="/contact"
             className={`hidden items-center gap-1 rounded-full px-3 py-1.5 text-[12px] font-semibold transition-all sm:flex ${
               scrolled
                 ? 'bg-ink-900 text-white hover:bg-ink-800'
                 : 'bg-white/15 text-white backdrop-blur hover:bg-white/25'
             }`}
           >
-            <Users className="h-3 w-3" /> Sign in
-          </button>
+            <Phone className="h-3 w-3" /> Contact
+          </Link>
           <button
             onClick={() => setMobileOpen(true)}
             className={`grid h-9 w-9 place-items-center rounded-lg transition-colors md:hidden ${
