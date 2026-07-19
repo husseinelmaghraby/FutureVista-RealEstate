@@ -26,9 +26,10 @@ export default function ContactForm() {
     return Object.keys(e).length === 0;
   };
 
-  const handleSubmit = (ev: React.FormEvent) => {
+  const handleSubmit = async (ev: React.FormEvent) => {
     ev.preventDefault();
     if (!validate()) return;
+
     const lead: Lead = {
       id: crypto.randomUUID(),
       ...form,
@@ -38,6 +39,17 @@ export default function ContactForm() {
     setSubmitted(true);
     setForm({ name: '', mobile: '', email: '', message: '' });
     setTimeout(() => setSubmitted(false), 4000);
+
+    try {
+      await fetch('https://script.google.com/macros/s/AKfycbxPHwpWcKoYyv2dEez8l-miA8-uNEhMESKjdqaf18TKwcnqIDWdUS_pkrpgoD8L8qU/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify(lead),
+      });
+    } catch (error) {
+      console.error('Failed to send to Google Sheet:', error);
+    }
   };
 
   return (
