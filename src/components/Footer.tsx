@@ -49,7 +49,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-4">
             <a href="#" className="flex items-center gap-2.5">
-              <div className="grid h-10 w-16 place-items-center rounded-lg bg-ink-950 p-1">
+              <div className="grid h-15 w-16 place-items-center rounded-lg bg-ink-950 p-1">
   <img src={logoImg} alt="FV Icon" className="h-full w-full object-contain" />
 </div>
               <span>
