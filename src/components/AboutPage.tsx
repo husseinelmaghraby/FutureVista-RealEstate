@@ -11,7 +11,7 @@ export default function AboutPage() {
         </div>
         <div className="container-x relative text-center">
           <h1 className="font-display text-3xl font-bold text-white sm:text-5xl">
-            About Future Vista Properties
+            About Future Vista 
           </h1>
         </div>
       </section>
