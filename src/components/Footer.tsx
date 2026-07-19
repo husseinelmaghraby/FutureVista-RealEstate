@@ -62,7 +62,7 @@ export default function Footer() {
               building the city's most trusted property platform.
             </p>
             <div className="mt-6 flex items-center gap-3">
-              {[Facebook, Instagram, Twitter, Linkedin, Youtube].map((Icon, i) => (
+              {[Facebook, Instagram, Linkedin].map((Icon, i) => (
                 <a
                   key={i}
                   href="#"
