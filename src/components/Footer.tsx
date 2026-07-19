@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Send } from 'lucide-react';
 import logoImg from '../assets/logofuture.png';
 
@@ -10,10 +11,15 @@ const columns: { title: string; links: string[] }[] = [
     title: 'Properties for Sale',
     links: ['Apartments for Sale', 'Villas for Sale', 'Penthouses', 'Townhouses', 'Off-Plan Projects', 'Commercial Spaces', 'Luxury Mansions', 'Brand Residences'],
   },
-  {
-    title: 'Properties for Rent',
-    links: ['Annual Rentals', 'Short Term Rentals', 'Furnished Apartments', 'Villas for Rent', 'Studio Rentals', 'Shared Accommodation', 'Holiday Homes', 'Corporate Housing'],
-  },
+];
+
+const quickLinks: { label: string; to: string }[] = [
+  { label: 'Home', to: '/' },
+  { label: 'About Us', to: '/about' },
+  { label: 'Buy', to: '/listings/buy' },
+  { label: 'Sell', to: '/listings/buy' },
+  { label: 'Our Agents', to: '/agents' },
+  { label: 'Contact Us', to: '/contact' },
 ];
 
 export default function Footer() {
@@ -50,8 +56,8 @@ export default function Footer() {
           <div className="lg:col-span-4">
             <a href="#" className="flex items-center gap-2.5">
               <div className="grid h-15 w-16 place-items-center rounded-lg bg-ink-950 p-1">
-  <img src={logoImg} alt="FV Icon" className="h-full w-full object-contain" />
-</div>
+                <img src={logoImg} alt="FV Icon" className="h-full w-full object-contain" />
+              </div>
               <span>
                 <span className="block font-display text-xl font-bold">Future Vista</span>
                 <span className="text-[11px] uppercase tracking-[0.2em] text-white/50">Dubai · Est. 2010</span>
@@ -97,6 +103,25 @@ export default function Footer() {
                 </ul>
               </div>
             ))}
+
+            <div>
+              <h4 className="mb-4 text-xs font-bold uppercase tracking-[0.15em] text-brand-400">
+                Quick Links
+              </h4>
+              <ul className="space-y-2.5">
+                {quickLinks.map((l) => (
+                  <li key={l.label}>
+                    <Link
+                      to={l.to}
+                      className="group inline-flex items-center gap-1 text-sm text-white/65 transition-colors hover:text-white"
+                    >
+                      <span className="h-px w-0 bg-brand-500 transition-all group-hover:w-3" />
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
