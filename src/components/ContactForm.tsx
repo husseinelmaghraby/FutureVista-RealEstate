@@ -82,7 +82,7 @@ export default function ContactForm() {
             </h2>
             <p className="mt-5 max-w-md text-base text-white/70">
               Whether you're buying your first apartment, upgrading to a villa, or building an
-              investment portfolio — leave your details and a dedicated fäm advisor will reach
+              investment portfolio — leave your details and a dedicated Future Vista advisor will reach
               out within 24 hours.
             </p>
 
