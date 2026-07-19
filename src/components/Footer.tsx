@@ -49,9 +49,9 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-4">
             <a href="#" className="flex items-center gap-2.5">
-              <span className="grid h-10 w-10 place-items-center rounded-lg bg-brand-600 font-display text-xl font-bold">
-                f
-              </span>
+              <div className="grid h-10 w-10 place-items-center rounded-lg bg-ink-950 p-1">
+  <img src={logoImg} alt="FV Icon" className="h-full w-full object-contain" />
+</div>
               <span>
                 <span className="block font-display text-xl font-bold">Future Vista</span>
                 <span className="text-[11px] uppercase tracking-[0.2em] text-white/50">Dubai · Est. 2010</span>
