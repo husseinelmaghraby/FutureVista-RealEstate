@@ -48,26 +48,33 @@ export default function HeroSlider({
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {/* Background slides */}
-      <div className="absolute inset-0 z-0">
-        {heroSlides.map((s, i) => (
-          <div
-            key={s.id}
-            className={`absolute inset-0 transition-opacity duration-[1400ms] ease-out ${
-              i === index ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <img
-              src={s.image}
-              alt={s.title}
-              className={`h-full w-full object-cover ${i === index ? 'animate-kenburns' : ''}`}
-              loading={i === 0 ? 'eager' : 'lazy'}
-            />
-          </div>
-        ))}
-        <div className="absolute inset-0 bg-gradient-to-b from-ink-950/70 via-ink-950/45 to-ink-950/90" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink-950/60 via-transparent to-transparent" />
+     {/* Background slides */}
+<div className="absolute inset-0 z-0 overflow-hidden">
+  <div
+    className="flex h-full transition-transform duration-[1200ms] ease-in-out"
+    style={{
+      width: `${heroSlides.length * 100}%`,
+      transform: `translateX(-${index * (100 / heroSlides.length)}%)`,
+    }}
+  >
+    {heroSlides.map((s, i) => (
+      <div
+        key={s.id}
+        className="relative h-full shrink-0"
+        style={{ width: `${100 / heroSlides.length}%` }}
+      >
+        <img
+          src={s.image}
+          alt={s.title}
+          className="h-full w-full object-cover"
+          loading={i === 0 ? 'eager' : 'lazy'}
+        />
       </div>
+    ))}
+  </div>
+  <div className="absolute inset-0 bg-gradient-to-b from-ink-950/70 via-ink-950/45 to-ink-950/90" />
+  <div className="absolute inset-0 bg-gradient-to-r from-ink-950/60 via-transparent to-transparent" />
+</div>
 
       {/* Slide arrows (Hidden on mobile for cleaner look, swipe/indicators can be used) */}
       <button
