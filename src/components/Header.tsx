@@ -338,14 +338,15 @@ export default function Header() {
               );
             })}
           </div>
-          <div className="grid grid-cols-2 gap-3 border-t border-ink-100 p-4">
-            <button className="btn-outline w-full">
-              <Tag className="h-4 w-4" /> Valuation
-            </button>
-            <button className="btn-primary w-full">
-              <Users className="h-4 w-4" /> Sign in
-            </button>
-          </div>
+         <div className="border-t border-ink-100 p-4">
+  <Link
+    to="/contact"
+    onClick={() => setMobileOpen(false)}
+    className="btn-primary w-full"
+  >
+    <Phone className="h-4 w-4" /> Contact
+  </Link>
+</div>
         </aside>
       </div>
     </header>
