@@ -1,0 +1,117 @@
+import { Facebook, Instagram, Twitter, Linkedin, Youtube, Send } from 'lucide-react';
+
+const columns: { title: string; links: string[] }[] = [
+  {
+    title: 'Dubai Properties',
+    links: ['Downtown Dubai', 'Dubai Marina', 'Business Bay', 'Palm Jumeirah', 'JVC', 'Dubai Creek Harbour', 'Bluewaters Island', 'Meydan City'],
+  },
+  {
+    title: 'Properties for Sale',
+    links: ['Apartments for Sale', 'Villas for Sale', 'Penthouses', 'Townhouses', 'Off-Plan Projects', 'Commercial Spaces', 'Luxury Mansions', 'Brand Residences'],
+  },
+  {
+    title: 'Properties for Rent',
+    links: ['Annual Rentals', 'Short Term Rentals', 'Furnished Apartments', 'Villas for Rent', 'Studio Rentals', 'Shared Accommodation', 'Holiday Homes', 'Corporate Housing'],
+  },
+];
+
+export default function Footer() {
+  return (
+    <footer className="relative overflow-hidden bg-ink-950 text-white">
+      {/* Newsletter */}
+      <div className="border-b border-white/10">
+        <div className="container-x py-10">
+          <div className="flex flex-col items-center justify-between gap-6 lg:flex-row">
+            <div>
+              <h3 className="font-display text-2xl font-bold sm:text-3xl">Stay ahead of the market.</h3>
+              <p className="mt-1.5 text-sm text-white/60">
+                Get exclusive off-plan launches, price alerts, and Dubai market reports — straight to your inbox.
+              </p>
+            </div>
+            <form className="flex w-full max-w-md items-center gap-2 rounded-full border border-white/10 bg-white/5 p-1.5 backdrop-blur">
+              <input
+                type="email"
+                placeholder="Your email address"
+                className="flex-1 bg-transparent px-4 py-2.5 text-sm text-white placeholder-white/40 focus:outline-none"
+              />
+              <button className="inline-flex items-center gap-1.5 rounded-full bg-brand-600 px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-brand-700">
+                Subscribe <Send className="h-3.5 w-3.5" />
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      {/* Main footer */}
+      <div className="container-x py-14">
+        <div className="grid gap-10 lg:grid-cols-12">
+          {/* Brand */}
+          <div className="lg:col-span-4">
+            <a href="#" className="flex items-center gap-2.5">
+              <span className="grid h-10 w-10 place-items-center rounded-lg bg-brand-600 font-display text-xl font-bold">
+                f
+              </span>
+              <span>
+                <span className="block font-display text-xl font-bold">Future Vista</span>
+                <span className="text-[11px] uppercase tracking-[0.2em] text-white/50">Dubai · Est. 2010</span>
+              </span>
+            </a>
+            <p className="mt-5 max-w-xs text-sm text-white/60">
+              Dubai's most awarded real estate brokerage. 10,000+ listings, 200+ advisors, and 14 years of
+              building the city's most trusted property platform.
+            </p>
+            <div className="mt-6 flex items-center gap-3">
+              {[Facebook, Instagram, Twitter, Linkedin, Youtube].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:border-brand-500 hover:bg-brand-600 hover:text-white"
+                  aria-label="Social link"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Link columns */}
+          <div className="grid gap-8 sm:grid-cols-3 lg:col-span-8">
+            {columns.map((col) => (
+              <div key={col.title}>
+                <h4 className="mb-4 text-xs font-bold uppercase tracking-[0.15em] text-brand-400">
+                  {col.title}
+                </h4>
+                <ul className="space-y-2.5">
+                  {col.links.map((l) => (
+                    <li key={l}>
+                      <a
+                        href="#"
+                        className="group inline-flex items-center gap-1 text-sm text-white/65 transition-colors hover:text-white"
+                      >
+                        <span className="h-px w-0 bg-brand-500 transition-all group-hover:w-3" />
+                        {l}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="border-t border-white/10 bg-ink-950">
+        <div className="container-x flex flex-col items-center justify-between gap-4 py-6 text-xs text-white/50 sm:flex-row">
+          <div>© {new Date().getFullYear()}  FUTURE VISTA. All rights reserved. Powered by FUTURE VISTA.</div>
+          <div className="flex items-center gap-5">
+            <a href="#" className="hover:text-white">Privacy Policy</a>
+            <a href="#" className="hover:text-white">Terms</a>
+            <a href="#" className="hover:text-white">Cookies</a>
+            <a href="#" className="hover:text-white">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
