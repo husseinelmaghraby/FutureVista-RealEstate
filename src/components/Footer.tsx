@@ -2,14 +2,32 @@ import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Send } from 'lucide-react';
 import logoImg from '../assets/logofuture.png';
 
-const columns: { title: string; links: string[] }[] = [
+const columns: { title: string; links: { label: string; to: string }[] }[] = [
   {
     title: 'Dubai Properties',
-    links: ['Downtown Dubai', 'Dubai Marina', 'Business Bay', 'Palm Jumeirah', 'JVC', 'Dubai Creek Harbour', 'Bluewaters Island', 'Meydan City'],
+    links: [
+      { label: 'Downtown Dubai', to: '/listings/buy' },
+      { label: 'Dubai Marina', to: '/listings/buy' },
+      { label: 'Business Bay', to: '/listings/buy' },
+      { label: 'Palm Jumeirah', to: '/listings/buy' },
+      { label: 'JVC', to: '/listings/buy' },
+      { label: 'Dubai Creek Harbour', to: '/listings/buy' },
+      { label: 'Bluewaters Island', to: '/listings/buy' },
+      { label: 'Meydan City', to: '/listings/buy' },
+    ],
   },
   {
     title: 'Properties for Sale',
-    links: ['Apartments for Sale', 'Villas for Sale', 'Penthouses', 'Townhouses', 'Off-Plan Projects', 'Commercial Spaces', 'Luxury Mansions', 'Brand Residences'],
+    links: [
+      { label: 'Apartments for Sale', to: '/listings/buy?type=apartment' },
+      { label: 'Villas for Sale', to: '/listings/buy?type=villa' },
+      { label: 'Penthouses', to: '/listings/buy?type=penthouse' },
+      { label: 'Townhouses', to: '/listings/buy?type=townhouse' },
+      { label: 'Off-Plan Projects', to: '/listings/projects' },
+      { label: 'Commercial Spaces', to: '/listings/commercial' },
+      { label: 'Luxury Mansions', to: '/listings/luxe?type=mansions' },
+      { label: 'Brand Residences', to: '/listings/luxe?type=brand' },
+    ],
   },
 ];
 
@@ -90,14 +108,14 @@ export default function Footer() {
                 </h4>
                 <ul className="space-y-2.5">
                   {col.links.map((l) => (
-                    <li key={l}>
-                      <a
-                        href="#"
+                    <li key={l.label}>
+                      <Link
+                        to={l.to}
                         className="group inline-flex items-center gap-1 text-sm text-white/65 transition-colors hover:text-white"
                       >
                         <span className="h-px w-0 bg-brand-500 transition-all group-hover:w-3" />
-                        {l}
-                      </a>
+                        {l.label}
+                      </Link>
                     </li>
                   ))}
                 </ul>
