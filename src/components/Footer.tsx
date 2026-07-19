@@ -1,4 +1,5 @@
-import { Facebook, Instagram, Twitter, Linkedin, Youtube, Send } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Send } from 'lucide-react';
+import logoImg from '../assets/logofuture.png';
 
 const columns: { title: string; links: string[] }[] = [
   {
