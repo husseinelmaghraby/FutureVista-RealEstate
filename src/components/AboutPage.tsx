@@ -128,11 +128,9 @@ export default function AboutPage() {
             />
           </div>
 
-          {/* Stats */}
-          <div className="mt-8 grid grid-cols-2 gap-6 rounded-2xl border border-white/10 bg-white/[0.04] p-8 sm:grid-cols-4">
-            <Stat value="10,000+" label="Active Listings" />
-            <Stat value="14 Years" label="of Experience" />
-            <Stat value="24 Offices" label="across Dubai" />
+          {/* Stats (Updated: 2 items) */}
+          <div className="mt-8 grid grid-cols-1 gap-6 rounded-2xl border border-white/10 bg-white/[0.04] p-8 sm:grid-cols-2">
+            <Stat value="5,000+" label="Active Listings" />
             <Stat value="4.9★" label="Client Rating" />
           </div>
         </div>
