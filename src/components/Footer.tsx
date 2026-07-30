@@ -61,10 +61,10 @@ const quickLinks: { label: string; to: string }[] = [
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-ink-950 text-white">
-      {/* Newsletter */}
+      {/* Newsletter Section */}
       <div className="border-b border-white/10">
         <div className="container-x py-10">
-          <div className="flex flex-col items-center justify-between gap-6 lg:flex-row">
+          <div className="flex flex-col items-center text-center lg:text-left justify-between gap-6 lg:flex-row">
             <div>
               <h3 className="font-display text-2xl font-bold sm:text-3xl">Stay ahead of the market.</h3>
               <p className="mt-1.5 text-sm text-white/60">
@@ -77,7 +77,7 @@ export default function Footer() {
                 placeholder="Your email address"
                 className="flex-1 bg-transparent px-4 py-2.5 text-sm text-white placeholder-white/40 focus:outline-none"
               />
-              <button className="inline-flex items-center gap-1.5 rounded-full bg-brand-600 px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-brand-700">
+              <button className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-brand-600 px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-brand-700">
                 Subscribe <Send className="h-3.5 w-3.5" />
               </button>
             </form>
@@ -85,11 +85,11 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Main footer */}
+      {/* Main Footer Content */}
       <div className="container-x py-14">
         <div className="grid gap-10 lg:grid-cols-12">
-          {/* Brand & Address */}
-          <div className="lg:col-span-4">
+          {/* Brand & Address Section */}
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left lg:col-span-4">
             <a href="#" className="flex items-center gap-2.5">
               <div className="grid h-15 w-16 place-items-center rounded-lg bg-ink-950 p-1">
                 <img src={logoImg} alt="FV Icon" className="h-full w-full object-contain" />
@@ -99,18 +99,19 @@ export default function Footer() {
                 <span className="text-[11px] uppercase tracking-[0.2em] text-white/50">DUBAI · LUXURY REAL ESTATE</span>
               </span>
             </a>
+
             <p className="mt-5 max-w-xs text-sm text-white/60">
               Your trusted partner in Dubai real estate. Specializing in luxury properties, off-plan investments, and tailored real estate solutions across the UAE.
             </p>
 
-            {/* 📍 Office Location */}
-            <div className="mt-4 flex items-start gap-2.5 text-sm text-white/70">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-400" />
+            {/* 📍 Location */}
+            <div className="mt-4 flex items-center lg:items-start justify-center lg:justify-start gap-2 text-sm text-white/70">
+              <MapPin className="h-4 w-4 shrink-0 text-brand-400" />
               <span>Office 903, Churchill Tower, Business Bay, Dubai, UAE</span>
             </div>
 
-            {/* Social Links */}
-            <div className="mt-6 flex items-center gap-3">
+            {/* Social Icons */}
+            <div className="mt-6 flex items-center justify-center lg:justify-start gap-3">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
@@ -129,8 +130,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Link columns */}
-          <div className="grid gap-8 sm:grid-cols-3 lg:col-span-8">
+          {/* Link Columns Section */}
+          <div className="grid gap-8 text-center sm:text-left sm:grid-cols-3 lg:col-span-8">
             {columns.map((col) => (
               <div key={col.title}>
                 <h4 className="mb-4 text-xs font-bold uppercase tracking-[0.15em] text-brand-400">
@@ -141,9 +142,9 @@ export default function Footer() {
                     <li key={l.label}>
                       <Link
                         to={l.to}
-                        className="group inline-flex items-center gap-1 text-sm text-white/65 transition-colors hover:text-white"
+                        className="group inline-flex items-center justify-center sm:justify-start gap-1 text-sm text-white/65 transition-colors hover:text-white"
                       >
-                        <span className="h-px w-0 bg-brand-500 transition-all group-hover:w-3" />
+                        <span className="hidden sm:inline-block h-px w-0 bg-brand-500 transition-all group-hover:w-3" />
                         {l.label}
                       </Link>
                     </li>
@@ -161,9 +162,9 @@ export default function Footer() {
                   <li key={l.label}>
                     <Link
                       to={l.to}
-                      className="group inline-flex items-center gap-1 text-sm text-white/65 transition-colors hover:text-white"
+                      className="group inline-flex items-center justify-center sm:justify-start gap-1 text-sm text-white/65 transition-colors hover:text-white"
                     >
-                      <span className="h-px w-0 bg-brand-500 transition-all group-hover:w-3" />
+                      <span className="hidden sm:inline-block h-px w-0 bg-brand-500 transition-all group-hover:w-3" />
                       {l.label}
                     </Link>
                   </li>
@@ -174,11 +175,11 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom bar */}
+      {/* Bottom Bar */}
       <div className="border-t border-white/10 bg-ink-950">
         <div className="container-x flex flex-col items-center justify-between gap-4 py-6 text-xs text-white/50 sm:flex-row">
           <div>© {new Date().getFullYear()} FUTURE VISTA. All rights reserved. Powered by FUTURE VISTA.</div>
-          <div className="flex items-center gap-5">
+          <div className="flex flex-wrap items-center justify-center gap-5">
             <a href="#" className="hover:text-white">Privacy Policy</a>
             <a href="#" className="hover:text-white">Terms</a>
             <a href="#" className="hover:text-white">Cookies</a>
