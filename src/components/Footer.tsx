@@ -100,8 +100,7 @@ export default function Footer() {
               </span>
             </a>
             <p className="mt-5 max-w-xs text-sm text-white/60">
-              Dubai's most awarded real estate brokerage. 10,000+ listings, 200+ advisors, and 14 years of
-              building the city's most trusted property platform.
+              Your trusted partner in Dubai real estate. Specializing in luxury properties, off-plan investments, and tailored real estate solutions across the UAE.
             </p>
             <div className="mt-6 flex items-center gap-3">
               {socialLinks.map((social) => {
