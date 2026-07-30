@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes, useNavigate, useLocation } from 'react-router-dom';
-import { Building2, ArrowRight, Sparkles } from 'lucide-react';
+import { Building2, Star, ShieldCheck, ArrowRight, Sparkles } from 'lucide-react';
 import Header from './components/Header';
 import HeroSlider, { type SearchTab } from './components/HeroSlider';
 import PropertyCard from './components/PropertyCard';
@@ -129,6 +129,27 @@ function HomePage() {
           }
         }}
       />
+
+      {/* Trust band (Updated: 3 stats) */}
+      <section className="border-b border-ink-100 bg-white">
+        <div className="container-x grid grid-cols-1 gap-6 py-8 sm:grid-cols-3">
+          {[
+            { icon: Building2, value: '5,000+', label: 'Active Listings' },
+            { icon: Star, value: '4.9★', label: 'Client Rating' },
+            { icon: ShieldCheck, value: '100%', label: 'RERA Regulated' },
+          ].map((s) => (
+            <div key={s.label} className="flex items-center justify-center gap-3">
+              <span className="grid h-12 w-12 place-items-center rounded-xl bg-brand-50 text-brand-600">
+                <s.icon className="h-5 w-5" />
+              </span>
+              <div>
+                <div className="font-display text-xl font-bold text-ink-900">{s.value}</div>
+                <div className="text-xs text-ink-500">{s.label}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Listings */}
       <section ref={listingsRef} className="bg-ink-50/60 py-16 sm:py-20">
