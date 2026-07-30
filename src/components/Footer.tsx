@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Linkedin, Send } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Send, MapPin } from 'lucide-react';
 import logoImg from '../assets/logofuture.png';
 
 const socialLinks = [
@@ -88,7 +88,7 @@ export default function Footer() {
       {/* Main footer */}
       <div className="container-x py-14">
         <div className="grid gap-10 lg:grid-cols-12">
-          {/* Brand */}
+          {/* Brand & Address */}
           <div className="lg:col-span-4">
             <a href="#" className="flex items-center gap-2.5">
               <div className="grid h-15 w-16 place-items-center rounded-lg bg-ink-950 p-1">
@@ -102,6 +102,14 @@ export default function Footer() {
             <p className="mt-5 max-w-xs text-sm text-white/60">
               Your trusted partner in Dubai real estate. Specializing in luxury properties, off-plan investments, and tailored real estate solutions across the UAE.
             </p>
+
+            {/* 📍 Office Location */}
+            <div className="mt-4 flex items-start gap-2.5 text-sm text-white/70">
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-400" />
+              <span>Office 903, Churchill Tower, Business Bay, Dubai, UAE</span>
+            </div>
+
+            {/* Social Links */}
             <div className="mt-6 flex items-center gap-3">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
