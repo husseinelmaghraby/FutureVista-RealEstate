@@ -151,7 +151,7 @@ export default function ContactForm() {
                       className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:border-brand-500 hover:bg-brand-600 hover:text-white"
                       aria-label={social.name}
                     >
-                      <Icon className="h-8 w-8" />
+                      <Icon className="h-7 w-7" />
                     </a>
                   );
                 })}
