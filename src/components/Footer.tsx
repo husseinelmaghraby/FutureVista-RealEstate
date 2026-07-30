@@ -60,24 +60,27 @@ const quickLinks: { label: string; to: string }[] = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-ink-950 text-white">
-      {/* Newsletter Section */}
-      <div className="border-b border-white/10">
-        <div className="container-x py-10">
-          <div className="flex flex-col items-center text-center lg:text-left justify-between gap-6 lg:flex-row">
-            <div>
-              <h3 className="font-display text-2xl font-bold sm:text-3xl">Stay ahead of the market.</h3>
-              <p className="mt-1.5 text-sm text-white/60">
+    <footer className="relative overflow-hidden bg-ink-950 text-white pt-10">
+      {/* Newsletter - Redesigned as a Premium Card */}
+      <div className="container-x">
+        <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-r from-white/10 via-white/5 to-transparent p-8 md:p-10 backdrop-blur-md">
+          <div className="flex flex-col items-center justify-between gap-6 lg:flex-row text-center lg:text-left">
+            <div className="max-w-xl">
+              <h3 className="font-display text-2xl font-bold sm:text-3xl text-white">
+                Stay ahead of the market.
+              </h3>
+              <p className="mt-2 text-sm text-white/70 leading-relaxed">
                 Get exclusive off-plan launches, price alerts, and Dubai market reports — straight to your inbox.
               </p>
             </div>
-            <form className="flex w-full max-w-md items-center gap-2 rounded-full border border-white/10 bg-white/5 p-1.5 backdrop-blur">
+            
+            <form className="flex w-full max-w-md items-center gap-2 rounded-full border border-white/20 bg-black/40 p-1.5 backdrop-blur-md focus-within:border-brand-500 transition-colors">
               <input
                 type="email"
                 placeholder="Your email address"
                 className="flex-1 bg-transparent px-4 py-2.5 text-sm text-white placeholder-white/40 focus:outline-none"
               />
-              <button className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-brand-600 px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-brand-700">
+              <button className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-brand-600 px-6 py-2.5 text-sm font-bold text-white transition-colors hover:bg-brand-700">
                 Subscribe <Send className="h-3.5 w-3.5" />
               </button>
             </form>
