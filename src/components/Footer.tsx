@@ -96,7 +96,7 @@ export default function Footer() {
               </div>
               <span>
                 <span className="block font-display text-xl font-bold">Future Vista</span>
-                <span className="text-[11px] uppercase tracking-[0.2em] text-white/50">Dubai · Est. 2010</span>
+                <span className="text-[11px] uppercase tracking-[0.2em] text-white/50">DUBAI · LUXURY REAL ESTATE</span>
               </span>
             </a>
             <p className="mt-5 max-w-xs text-sm text-white/60">
