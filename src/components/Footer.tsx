@@ -2,6 +2,24 @@ import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Send } from 'lucide-react';
 import logoImg from '../assets/logofuture.png';
 
+const socialLinks = [
+  {
+    name: 'Facebook',
+    icon: Facebook,
+    href: 'https://www.facebook.com/share/18eJUMsjnd/?mibextid=wwXIfr',
+  },
+  {
+    name: 'Instagram',
+    icon: Instagram,
+    href: 'https://www.instagram.com/future.vista',
+  },
+  {
+    name: 'LinkedIn',
+    icon: Linkedin,
+    href: 'https://www.linkedin.com/company/future-vista-dubai/',
+  },
+];
+
 const columns: { title: string; links: { label: string; to: string }[] }[] = [
   {
     title: 'Dubai Properties',
@@ -86,16 +104,21 @@ export default function Footer() {
               building the city's most trusted property platform.
             </p>
             <div className="mt-6 flex items-center gap-3">
-              {[Facebook, Instagram, Linkedin].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:border-brand-500 hover:bg-brand-600 hover:text-white"
-                  aria-label="Social link"
-                >
-                  <Icon className="h-4 w-4" />
-                </a>
-              ))}
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:border-brand-500 hover:bg-brand-600 hover:text-white"
+                    aria-label={social.name}
+                  >
+                    <Icon className="h-4 w-4" />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
@@ -147,7 +170,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10 bg-ink-950">
         <div className="container-x flex flex-col items-center justify-between gap-4 py-6 text-xs text-white/50 sm:flex-row">
-          <div>© {new Date().getFullYear()}  FUTURE VISTA. All rights reserved. Powered by FUTURE VISTA.</div>
+          <div>© {new Date().getFullYear()} FUTURE VISTA. All rights reserved. Powered by FUTURE VISTA.</div>
           <div className="flex items-center gap-5">
             <a href="#" className="hover:text-white">Privacy Policy</a>
             <a href="#" className="hover:text-white">Terms</a>
