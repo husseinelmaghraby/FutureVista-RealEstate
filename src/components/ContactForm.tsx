@@ -1,5 +1,17 @@
 import { useState } from 'react';
-import { User, Phone, Mail, MessageSquare, Send, CheckCircle2, Sparkles } from 'lucide-react';
+import {
+  User,
+  Phone,
+  Mail,
+  MessageSquare,
+  Send,
+  CheckCircle2,
+  Sparkles,
+  MapPin,
+  Facebook,
+  Instagram,
+  Linkedin,
+} from 'lucide-react';
 
 interface Lead {
   id: string;
@@ -9,6 +21,24 @@ interface Lead {
   message: string;
   createdAt: number;
 }
+
+const socialLinks = [
+  {
+    name: 'Facebook',
+    icon: Facebook,
+    href: 'https://www.facebook.com/share/18eJUMsjnd/?mibextid=wwXIfr',
+  },
+  {
+    name: 'Instagram',
+    icon: Instagram,
+    href: 'https://www.instagram.com/future.vista',
+  },
+  {
+    name: 'LinkedIn',
+    icon: Linkedin,
+    href: 'https://www.linkedin.com/company/future-vista-dubai/',
+  },
+];
 
 export default function ContactForm() {
   const [form, setForm] = useState({ name: '', mobile: '', email: '', message: '' });
@@ -41,12 +71,15 @@ export default function ContactForm() {
     setTimeout(() => setSubmitted(false), 4000);
 
     try {
-      await fetch('https://script.google.com/macros/s/AKfycbxPHwpWcKoYyv2dEez8l-miA8-uNEhMESKjdqaf18TKwcnqIDWdUS_pkrpgoD8L8qU/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain' },
-        body: JSON.stringify(lead),
-      });
+      await fetch(
+        'https://script.google.com/macros/s/AKfycbxPHwpWcKoYyv2dEez8l-miA8-uNEhMESKjdqaf18TKwcnqIDWdUS_pkrpgoD8L8qU/exec',
+        {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify(lead),
+        }
+      );
     } catch (error) {
       console.error('Failed to send to Google Sheet:', error);
     }
@@ -70,7 +103,7 @@ export default function ContactForm() {
 
       <div className="container-x relative">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Left: copy */}
+          {/* Left Side: Contact Info & Social Links */}
           <div className="flex flex-col justify-center">
             <span className="inline-flex w-fit items-center gap-2 rounded-full bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-brand-400 ring-1 ring-white/10">
               <Sparkles className="h-3.5 w-3.5" /> Let's Talk
@@ -86,10 +119,43 @@ export default function ContactForm() {
               out within 24 hours.
             </p>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              <Stat value="10K+" label="Properties" />
-              <Stat value="4.9★" label="Client Rating" />
-              <Stat value="14 yrs" label="In Dubai" />
+            {/* Direct Contact Details */}
+            <div className="mt-8 space-y-4">
+              <ContactInfo
+                icon={Phone}
+                title="Phone"
+                value="+971 52 955 5810"
+                href="tel:+971529555810"
+              />
+              <ContactInfo
+                icon={MapPin}
+                title="Office Location"
+                value="Office 903, Churchill Tower, Business Bay, Dubai, UAE"
+              />
+            </div>
+
+            {/* Social Media Links */}
+            <div className="mt-8">
+              <span className="block text-xs font-semibold uppercase tracking-wider text-white/60">
+                Follow Us
+              </span>
+              <div className="mt-3 flex items-center gap-3">
+                {socialLinks.map((social) => {
+                  const Icon = social.icon;
+                  return (
+                    <a
+                      key={social.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:border-brand-500 hover:bg-brand-600 hover:text-white"
+                      aria-label={social.name}
+                    >
+                      <Icon className="h-4 w-4" />
+                    </a>
+                  );
+                })}
+              </div>
             </div>
 
             {leads.length > 0 && (
@@ -109,7 +175,7 @@ export default function ContactForm() {
             )}
           </div>
 
-          {/* Right: form */}
+          {/* Right Side: Form */}
           <div className="relative">
             <form
               onSubmit={handleSubmit}
@@ -181,12 +247,35 @@ export default function ContactForm() {
   );
 }
 
-function Stat({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="rounded-xl border border-white/10 bg-white/5 p-4">
-      <div className="font-display text-2xl font-bold text-white">{value}</div>
-      <div className="mt-0.5 text-xs text-white/60">{label}</div>
+function ContactInfo({
+  icon: Icon,
+  title,
+  value,
+  href,
+}: {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  value: string;
+  href?: string;
+}) {
+  const content = (
+    <div className="flex items-center gap-3.5 rounded-xl border border-white/10 bg-white/5 p-4 transition-colors hover:border-white/20">
+      <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-brand-600/20 text-brand-400">
+        <Icon className="h-5 w-5" />
+      </div>
+      <div>
+        <div className="text-xs font-medium text-white/50">{title}</div>
+        <div className="mt-0.5 text-sm font-semibold text-white">{value}</div>
+      </div>
     </div>
+  );
+
+  return href ? (
+    <a href={href} className="block">
+      {content}
+    </a>
+  ) : (
+    content
   );
 }
 
