@@ -208,8 +208,8 @@ export default function Header() {
                   <span className="whitespace-nowrap">{item.label}</span>
                   {hasChildren && <ChevronDown className={`h-2.5 w-2.5 opacity-60 transition-transform duration-200 shrink-0 ${open ? 'rotate-180' : ''}`} />}
                 </Link>
-                {hasChildren && open && (
-                  <div className="absolute left-1/2 top-full z-50 w-[320px] -translate-x-1/2 pt-2">
+               {hasChildren && open && (
+  <div className="hidden md:block absolute left-1/2 top-full z-50 w-[320px] -translate-x-1/2 pt-2">
                     <div className="overflow-hidden rounded-2xl border border-ink-100 bg-white p-2 shadow-card animate-scaleIn">
                       {item.children!.map((c) => {
                         const CIcon = c.icon ?? ChevronDown;
@@ -302,41 +302,45 @@ export default function Header() {
           </div>
           <div className="flex-1 overflow-y-auto p-3">
             {navItems.map((item) => {
-              const Icon = item.icon;
-              return (
-                <details key={item.label} className="group border-b border-ink-50">
-                  <summary className="flex cursor-pointer list-none items-center gap-3 px-3 py-3.5 text-sm font-semibold text-ink-900">
-                    <Icon className="h-4 w-4 text-brand-600" />
-                    <span className="flex-1">{item.label}</span>
-                    {item.children?.length ? (
-                      <ChevronDown className="h-4 w-4 text-ink-400 transition-transform group-open:rotate-180" />
-                    ) : null}
-                  </summary>
-                  {item.children?.length ? (
-                    <div className="pb-2 pl-11">
-                      {item.children.map((c) => (
-                        <Link
-                          key={c.label}
-                          to={c.to}
-                          onClick={() => setMobileOpen(false)}
-                          className="block rounded-lg px-3 py-2 text-sm text-ink-600 hover:bg-ink-50 hover:text-brand-600"
-                        >
-                          {c.label}
-                        </Link>
-                      ))}
-                    </div>
-                  ) : (
-                    <Link
-                      to={item.to ?? '#'}
-                      onClick={() => setMobileOpen(false)}
-                      className="block rounded-lg px-3 py-2 text-sm text-ink-600 hover:bg-ink-50 hover:text-brand-600"
-                    >
-                      {item.label}
-                    </Link>
-                  )}
-                </details>
-              );
-            })}
+  const Icon = item.icon;
+  const hasChildren = !!item.children?.length;
+
+  if (!hasChildren) {
+    return (
+      <Link
+        key={item.label}
+        to={item.to ?? '#'}
+        onClick={() => setMobileOpen(false)}
+        className="flex items-center gap-3 border-b border-ink-50 px-3 py-3.5 text-sm font-semibold text-ink-900 hover:bg-ink-50"
+      >
+        <Icon className="h-4 w-4 text-brand-600" />
+        <span className="flex-1">{item.label}</span>
+      </Link>
+    );
+  }
+
+  return (
+    <details key={item.label} className="group border-b border-ink-50">
+      <summary className="flex cursor-pointer list-none items-center gap-3 px-3 py-3.5 text-sm font-semibold text-ink-900">
+        <Icon className="h-4 w-4 text-brand-600" />
+        <span className="flex-1">{item.label}</span>
+        <ChevronDown className="h-4 w-4 text-ink-400 transition-transform group-open:rotate-180" />
+      </summary>
+      <div className="pb-2 pl-11">
+        {item.children!.map((c) => (
+          <Link
+            key={c.label}
+            to={c.to}
+            onClick={() => setMobileOpen(false)}
+            className="block rounded-lg px-3 py-2 text-sm text-ink-600 hover:bg-ink-50 hover:text-brand-600"
+          >
+            {c.label}
+          </Link>
+        ))}
+      </div>
+    </details>
+  );
+})}
           </div>
          <div className="border-t border-ink-100 p-4">
   <Link
