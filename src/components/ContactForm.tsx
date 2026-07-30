@@ -148,7 +148,7 @@ export default function ContactForm() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:border-brand-500 hover:bg-brand-600 hover:text-white"
+                      className="grid h-12 w-12 place-items-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:border-brand-500 hover:bg-brand-600 hover:text-white"
                       aria-label={social.name}
                     >
                       <Icon className="h-7 w-7" />
