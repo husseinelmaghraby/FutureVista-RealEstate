@@ -3,6 +3,9 @@ import hero2 from '../assets/hero2.jpg.jpeg';
 import hero3 from '../assets/hero3.jpg.jpeg';
 import hero4 from '../assets/hero4.jpg.jpeg';
 
+import joudImg1 from '../assets/First Projects.jpeg';
+import joudImg2 from '../assets/First Projects 2 .jpeg';
+
 export type PropertyType = 'Apartment' | 'Villa' | 'Penthouse' | 'Townhouse' | 'Commercial' | 'Luxe';
 export type ListingCategory = 'buy' | 'rent' | 'projects' | 'commercial';
 export type Status = 'Off-plan' | 'Ready';
@@ -33,6 +36,11 @@ export interface Property {
   listedTime: string;
   description: string;
   images: string[];
+  amenities?: string[];
+  availableUnits?: string[];
+  paymentPlans?: string[];
+  eligibility?: string;
+  floors?: string;
 }
 
 export interface HeroSlide {
@@ -93,6 +101,59 @@ export const heroSlides: HeroSlide[] = [
 ];
 
 export const properties: Property[] = [
+  {
+    id: 'joud-tower',
+    title: 'JOUD TOWER',
+    developer: 'Joud Developments',
+    price: 1325000,
+    priceLabel: 'AED 1.325M',
+    type: 'Apartment',
+    category: 'projects',
+    status: 'Off-plan',
+    location: 'Al Mamzar',
+    area: 'Al Mamzar, Sharjah',
+    beds: 2,
+    baths: 2,
+    size: 1541,
+    paymentPlan: '10% Down Payment / 1% Monthly',
+    handover: 'Off-plan',
+    image: joudImg1,
+    gallery: [joudImg1, joudImg2],
+    featured: true,
+    view: 'Al Mamzar View',
+    refNo: 'FV-JOUD01',
+    completionDate: 'Off-plan',
+    listedTime: 'Just now',
+    eligibility: 'FOR ALL ARAB NATIONALITIES ONLY',
+    floors: '55 Floors (B + G + 6P + 48) - Twin Towers (A/B)',
+    description:
+      'Joud Tower is located in Al Mamzar, Sharjah. A twin-tower development (A/B) featuring 55 floors and 572 residential units with various layouts ranging from 2 Bedrooms up to 5 Bedroom Penthouses. Available exclusively FOR ALL ARAB NATIONALITIES ONLY.',
+    availableUnits: [
+      '2 Bedrooms',
+      '3 Bedrooms',
+      '4 Bedrooms',
+      '3/4 Bedrooms + Garden',
+      '4 Bedroom Duplex (Joud Villa)',
+      '5 Bedroom (Penthouse)',
+    ],
+    paymentPlans: [
+      '10% Down payment and 1% Monthly',
+      '40% During construction and 60% (cash/mortgage) on handover',
+      '10% Down payment and 90% during construction',
+    ],
+    amenities: [
+      'Swimming pool + Kids pool',
+      '2 Gyms + Steam room + Sauna (men/women)',
+      'Padel court',
+      'Jogging track',
+      'Multipurpose hall',
+      'Café',
+      'Nursery',
+      'Kids play area',
+      'Prayer room (men/women)',
+    ],
+    images: [joudImg1, joudImg2],
+  },
   {
     id: 'p1',
     title: 'Mercedes-Benz Places Binghatti City',
@@ -529,6 +590,7 @@ export const properties: Property[] = [
 
 export const locations = [
   'All Locations',
+  'Al Mamzar',
   'Business Bay',
   'Downtown Dubai',
   'Dubai Marina',
