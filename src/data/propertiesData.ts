@@ -10,6 +10,15 @@ import wowImg4 from '../assets/SecondProject4.webp';
 import wowImg5 from '../assets/SecondProject5.webp';
 import wowImg6 from '../assets/SecondProject6.webp';
 
+// استيراد صور المشروع الثالث (Eywa Way of Water)
+import eywaImg1 from '../assets/Project3-1.webp';
+import eywaImg2 from '../assets/Project3-2.webp';
+import eywaImg3 from '../assets/Project3-3.webp';
+import eywaImg4 from '../assets/Project3-4.webp';
+import eywaImg5 from '../assets/Project3-5.webp';
+import eywaImg6 from '../assets/Project3-6.webp';
+import eywaImg7 from '../assets/Project3-7.webp';
+
 export type PropertyType = 'Apartment' | 'Villa' | 'Penthouse' | 'Townhouse' | 'Commercial' | 'Luxe';
 export type ListingCategory = 'buy' | 'rent' | 'projects' | 'commercial';
 export type Status = 'Off-plan' | 'Ready';
