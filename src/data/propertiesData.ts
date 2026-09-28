@@ -371,6 +371,53 @@ export const properties: Property[] = [
     ],
     images: [cullinanImg1, cullinanImg2, cullinanImg3, cullinanImg4, cullinanImg5, cullinanImg6, cullinanImg7, cullinanImg8],
   },
+  {
+    id: 'enta-mina',
+    title: 'ENTA MINA',
+    developer: 'RAK Properties',
+    price: 1721000,
+    priceLabel: 'AED 1.7M Starting From',
+    type: 'Apartment',
+    category: 'projects',
+    status: 'Off-plan',
+    location: 'Mina Al Arab, Ras Al Khaimah',
+    area: 'Mina Al Arab, Hayat Island',
+    beds: 1,
+    baths: 2, // مظبوطة (حمامين لـ 1 غرفة)
+    size: 751,
+    paymentPlan: 'Flexible Payment Plan',
+    handover: 'Q1/2028',
+    image: entaImg1,
+    gallery: [entaImg1, entaImg2, entaImg3, entaImg4, entaImg5, entaImg6, entaImg7, entaImg8, entaImg9],
+    featured: true,
+    view: 'Waterfront & Coastal View',
+    refNo: 'FV-ENTA01',
+    completionDate: 'Q1/2028',
+    listedTime: 'Just now',
+    eligibility: 'Freehold (تملك حر لجميع الجنسيات)',
+    floors: 'Building 1 - G + 3P + 18 Floors',
+    serviceCharge: '17.00 AED/ft²',
+    furnishing: 'Fully Furnished',
+    description:
+      'ENTA MINA is a residential complex by RAK Properties, located in Mina Al Arab on Hayat Island. The project is designed as a contemporary waterfront space focused on a calm rhythm of life and the atmosphere of a private coastal community.\n\nThe complex consists of a ground level, three podium levels, and eighteen residential floors with apartments. ENTA’s architecture combines tactile textures, a warm palette, and clean lines, creating a distinctive appearance overlooking the waterfront. The project’s spaces create a sense of privacy while maintaining a connection to the area’s urban infrastructure and dynamic surroundings.\n\nThe complex features a collection of studios, one-bedroom, and two-bedroom apartments. Interiors are designed in a contemporary minimalist aesthetic with thoughtful proportions, functional layouts, and soft natural tones that create an atmosphere of calm and everyday comfort.\n\nResidents have access to a swimming pool with lounge areas, a fitness centre, a library, a yoga studio, infrared saunas, barbecue areas, and an open-air cinema. The infrastructure is designed to balance work, relaxation, and a slower-paced waterfront lifestyle. The location provides direct access to Hayat Island and the Ras Al Khaimah coastline, located 16 minutes from Wynn Resort on Al Marjan Island.',
+    availableUnits: [
+      '1 BR (1,721,000 – 2,034,000 AED) - from 751 sq.ft.',
+      '2 BR (2,655,000 – 2,870,000 AED) - up to 1,418 sq.ft.',
+      'Studios Available',
+    ],
+    paymentPlans: [
+      'Resale allowed after 30%',
+      'Completion: Q1/2028',
+    ],
+    amenities: [
+      'Swimming pool with lounge areas',
+      'Fitness centre, yoga studio & infrared saunas',
+      'Library & open-air cinema',
+      'Barbecue areas & private coastal community atmosphere',
+      '16 minutes from Wynn Resort on Al Marjan Island',
+    ],
+    images: [entaImg1, entaImg2, entaImg3, entaImg4, entaImg5, entaImg6, entaImg7, entaImg8, entaImg9],
+  },
 ];
 
 export const locations = [
