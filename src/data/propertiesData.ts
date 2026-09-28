@@ -366,6 +366,9 @@ export const locations = [
   'All Locations',
   'Al Mamzar',
   'Dubailand',
+  'Sharjah',
+  'Business Bay, Dubai',
+  'Al Jaddaf, Dubai',
 ];
 
 export const propertyTypes: ('All Types' | PropertyType)[] = [
@@ -373,7 +376,7 @@ export const propertyTypes: ('All Types' | PropertyType)[] = [
   'Apartment',
 ];
 
-export const bedroomOptions = ['Any', '2'];
+export const bedroomOptions = ['Any', '1', '2', '3'];
 
 export const formatPrice = (n: number) => {
   if (n >= 1_000_000) return `AED ${(n / 1_000_000).toFixed(n % 1_000_000 === 0 ? 0 : 2)}M`;
