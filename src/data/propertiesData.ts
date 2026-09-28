@@ -29,6 +29,16 @@ import mamshaImg6 from '../assets/Project4-6.webp';
 import mamshaImg7 from '../assets/Project4-7.webp';
 import mamshaImg8 from '../assets/Project4-8.webp';
 
+// استيراد صور المشروع الخامس (Binghatti Cullinan)
+import cullinanImg1 from '../assets/Projects5-1.webp';
+import cullinanImg2 from '../assets/Projects5-2.webp';
+import cullinanImg3 from '../assets/Projects5-3.webp';
+import cullinanImg4 from '../assets/Projects5-4.webp';
+import cullinanImg5 from '../assets/Projects5-5.webp';
+import cullinanImg6 from '../assets/Projects5-6.webp';
+import cullinanImg7 from '../assets/Projects5-7.webp';
+import cullinanImg8 from '../assets/Projects5-8.webp';
+
 export type PropertyType = 'Apartment' | 'Villa' | 'Penthouse' | 'Townhouse' | 'Commercial' | 'Luxe';
 export type ListingCategory = 'buy' | 'rent' | 'projects' | 'commercial';
 export type Status = 'Off-plan' | 'Ready';
@@ -303,6 +313,52 @@ export const properties: Property[] = [
       'Strategic location near University City & Airports',
     ],
     images: [mamshaImg1, mamshaImg2, mamshaImg3, mamshaImg4, mamshaImg5, mamshaImg6, mamshaImg7, mamshaImg8],
+  },
+  {
+    id: 'binghatti-cullinan',
+    title: 'BINGHATTI CULLINAN',
+    developer: 'Binghatti Developers',
+    price: 1399999,
+    priceLabel: 'AED 1.4M Starting From',
+    type: 'Apartment',
+    category: 'projects',
+    status: 'Off-Plan',
+    location: 'Al Jaddaf, Dubai',
+    area: 'Al Jaddaf, Dubai',
+    beds: 1,
+    baths: 1,
+    size: 677,
+    paymentPlan: 'Flexible Payment Plan',
+    handover: 'Q3/2027',
+    image: cullinanImg1,
+    gallery: [cullinanImg1, cullinanImg2, cullinanImg3, cullinanImg4, cullinanImg5, cullinanImg6, cullinanImg7, cullinanImg8],
+    featured: true,
+    view: 'Community & City Skyline View',
+    refNo: 'FV-CULLINAN01',
+    completionDate: 'Q3/2027',
+    listedTime: 'Just now',
+    eligibility: 'Freehold (تملك حر لجميع الجنسيات)',
+    floors: 'B + G + 4P + 14 Floors + Roof',
+    serviceCharge: '16.00 AED/ft²',
+    furnishing: 'Semi Furnished with Kitchen Appliances',
+    description:
+      'Binghatti Cullinan is a luxurious multifunctional project by Binghatti, located in the Al Jaddaf community. The complex includes a basement level, a ground level, four podium levels, fourteen residential floors, and a roof. The collection includes studios and one-, two-, and three-bedroom apartments, as well as commercial spaces.\n\nThe architecture of the complex is designed in Binghatti’s signature style: clean lines and strict geometric forms create a recognizable silhouette that blends harmoniously with the surrounding landscape. The interiors are executed in a contemporary style using high-quality materials.\n\nResidents have access to a wide range of amenities, including a swimming pool, a fully equipped gym, a sports court, and relaxation areas. Strategically located: just 5 minutes to Wasl Club, 8 minutes to Wafi Mall, and 10 minutes to Festival City Center, The Dubai Mall, DXB Airport, and the Museum of the Future.',
+    availableUnits: [
+      '1 BR (1,399,999 – 1,688,200 AED) - from 677 sq.ft.',
+      'Studios, 2 & 3 Bedrooms Available',
+      'Commercial Spaces Available',
+    ],
+    paymentPlans: [
+      'Resale allowed after 40%',
+      'Handover: Q3/2027',
+    ],
+    amenities: [
+      'Swimming pool & fully equipped gym',
+      'Sports court & social areas',
+      'Signature Binghatti architecture & contemporary interiors',
+      'Prime location near Downtown & DXB Airport',
+    ],
+    images: [cullinanImg1, cullinanImg2, cullinanImg3, cullinanImg4, cullinanImg5, cullinanImg6, cullinanImg7, cullinanImg8],
   },
 ];
 
