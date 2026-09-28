@@ -122,6 +122,16 @@ export const heroSlides: HeroSlide[] = [
     image: joudImg1,
     tag: 'Off-Plan',
   },
+  {
+    id: 'enta-mina',
+    title: 'ENTA MINA',
+    subtitle: 'A contemporary waterfront space focused on a calm rhythm of life in Mina Al Arab.',
+    price: 'AED 1.721M Starting From',
+    paymentPlan: 'Resale allowed after 30%',
+    location: 'Mina Al Arab, Ras Al Khaimah',
+    image: entaImg1,
+    tag: 'New Launch',
+  },
 ];
 
 export const properties: Property[] = [
