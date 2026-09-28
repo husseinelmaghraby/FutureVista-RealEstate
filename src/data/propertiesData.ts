@@ -421,13 +421,14 @@ export const properties: Property[] = [
 ];
 
 export const locations = [
+export const locations = [
   'All Locations',
   'Al Mamzar',
   'Dubailand',
   'Sharjah',
   'Business Bay, Dubai',
   'Al Jaddaf, Dubai',
-  'ENTA MINA'
+  'Mina Al Arab, Ras Al Khaimah',
 ];
 
 export const propertyTypes: ('All Types' | PropertyType)[] = [
