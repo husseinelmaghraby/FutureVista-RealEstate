@@ -269,7 +269,7 @@ export const properties: Property[] = [
     location: 'Sharjah',
     area: 'Al Mamsha, Sharjah',
     beds: 1,
-    baths: 1,
+    baths: 2,
     size: 720,
     paymentPlan: 'Ready to Move / Modern Community',
     handover: 'Ready',
