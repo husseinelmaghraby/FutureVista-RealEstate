@@ -39,6 +39,17 @@ import cullinanImg6 from '../assets/Projects5-6.webp';
 import cullinanImg7 from '../assets/Projects5-7.webp';
 import cullinanImg8 from '../assets/Projects5-8.webp';
 
+// استيراد صور المشروع السادس (Enta Mina)
+import entaImg1 from '../assets/Projects6-1.webp';
+import entaImg2 from '../assets/Projects6-2.webp';
+import entaImg3 from '../assets/Projects6-3.webp';
+import entaImg4 from '../assets/Projects6-4.webp';
+import entaImg5 from '../assets/Projects6-5.webp';
+import entaImg6 from '../assets/Projects6-6.webp';
+import entaImg7 from '../assets/Projects6-7.webp';
+import entaImg8 from '../assets/Projects6-8.webp';
+import entaImg9 from '../assets/Projects6-9.webp';
+
 export type PropertyType = 'Apartment' | 'Villa' | 'Penthouse' | 'Townhouse' | 'Commercial' | 'Luxe';
 export type ListingCategory = 'buy' | 'rent' | 'projects' | 'commercial';
 export type Status = 'Off-plan' | 'Ready';
