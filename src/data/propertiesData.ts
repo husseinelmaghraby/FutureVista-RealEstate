@@ -96,7 +96,7 @@ export const properties: Property[] = [
     status: 'Off-plan',
     location: 'Dubailand',
     area: 'Dubailand Residence Complex',
-    beds: 1,
+    Studio: 1,
     baths: 1, // 1 BR = 1 Baths
     size: 376,
     paymentPlan: 'EOI: 70,000 AED / Launch Date Announced Later',
