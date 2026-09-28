@@ -326,7 +326,7 @@ export const properties: Property[] = [
     location: 'Al Jaddaf, Dubai',
     area: 'Al Jaddaf, Dubai',
     beds: 1,
-    baths: 1,
+    baths: 2,
     size: 677,
     paymentPlan: 'Flexible Payment Plan',
     handover: 'Q3/2027',
