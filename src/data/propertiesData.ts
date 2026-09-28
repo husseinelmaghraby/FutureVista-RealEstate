@@ -19,6 +19,16 @@ import eywaImg5 from '../assets/Project3-5.webp';
 import eywaImg6 from '../assets/Project3-6.webp';
 import eywaImg7 from '../assets/Project3-7.webp';
 
+// استيراد صور المشروع الرابع (Al Mamsha Souks)
+import mamshaImg1 from '../assets/Project4-1.webp';
+import mamshaImg2 from '../assets/Project4-2.webp';
+import mamshaImg3 from '../assets/Project4-3.webp';
+import mamshaImg4 from '../assets/Project4-4.webp';
+import mamshaImg5 from '../assets/Project4-5.webp';
+import mamshaImg6 from '../assets/Project4-6.webp';
+import mamshaImg7 from '../assets/Project4-7.webp';
+import mamshaImg8 from '../assets/Project4-8.webp';
+
 export type PropertyType = 'Apartment' | 'Villa' | 'Penthouse' | 'Townhouse' | 'Commercial' | 'Luxe';
 export type ListingCategory = 'buy' | 'rent' | 'projects' | 'commercial';
 export type Status = 'Off-plan' | 'Ready';
