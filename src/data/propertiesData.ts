@@ -10,6 +10,15 @@ import wowImg4 from '../assets/SecondProject4.webp';
 import wowImg5 from '../assets/SecondProject5.webp';
 import wowImg6 from '../assets/SecondProject6.webp';
 
+// استيراد صور المشروع الثالث (Eywa Way of Water)
+import eywaImg1 from '../assets/Project3-1.webp';
+import eywaImg2 from '../assets/Project3-2.webp';
+import eywaImg3 from '../assets/Project3-3.webp';
+import eywaImg4 from '../assets/Project3-4.webp';
+import eywaImg5 from '../assets/Project3-5.webp';
+import eywaImg6 from '../assets/Project3-6.webp';
+import eywaImg7 from '../assets/Project3-7.webp';
+
 export type PropertyType = 'Apartment' | 'Villa' | 'Penthouse' | 'Townhouse' | 'Commercial' | 'Luxe';
 export type ListingCategory = 'buy' | 'rent' | 'projects' | 'commercial';
 export type Status = 'Off-plan' | 'Ready';
@@ -187,6 +196,56 @@ export const properties: Property[] = [
       'Prayer room (men/women)',
     ],
     images: [joudImg1, joudImg2],
+  },
+  {
+    id: 'eywa-way-of-water',
+    title: 'EYWA WAY OF WATER',
+    developer: 'R.evolution',
+    price: 9707652,
+    priceLabel: 'AED 9.7M Starting From',
+    type: 'Apartment',
+    category: 'projects',
+    status: 'Off-plan',
+    location: 'Business Bay',
+    area: 'Business Bay, Dubai',
+    beds: 2,
+    baths: 3,
+    size: 2150,
+    paymentPlan: 'Resale allowed after 40%',
+    handover: 'Q3/2028',
+    image: eywaImg1,
+    gallery: [eywaImg1, eywaImg2, eywaImg3, eywaImg4, eywaImg5, eywaImg6, eywaImg7],
+    featured: true,
+    luxe: true,
+    view: 'Water & Skyline View',
+    refNo: 'FV-EYWA01',
+    completionDate: 'Q3/2028',
+    listedTime: 'Just now',
+    eligibility: 'Freehold (تملك حر لجميع الجنسيات)',
+    floors: 'Building 1 - B+G+3P+24',
+    serviceCharge: '35.00 AED/ft²',
+    furnishing: 'Semi Furnished',
+    description:
+      'Eywa Way of Water is a residential complex by R.evolution. A modern premium-class building with 65 residences, including 3 duplexes and 1 penthouse, embodies the philosophy of “Wild Luxury,” where nature and technology create a harmonious living space.\n\nThe architecture of Eywa Way of Water is inspired by natural forms and the pursuit of harmony with the environment. Smooth lines, greenery, and natural textures shape the look of a living, breathing building.\n\nThe complex offers apartments with 2-5 bedrooms. The concept resembles a tree, where every detail — from light to panoramic glazing — fills the space with air and natural energy.\n\nInteriors are designed with a focus on quality and sustainability: durable, non-toxic materials, marble and parquet flooring, natural textures, and soft tones create an atmosphere of refined comfort.\n\nResidents of Eywa Way of Water have access to premium amenities: a spa and fitness center with a yoga studio, various types of saunas and a Japanese bath, swimming and infinity pools, a tea house, library, music lounge, children’s area, open-air cinema with a waterfall, and concierge services.',
+    availableUnits: [
+      '2 BR (from 9,707,652 AED) - 2,150 sq.ft.',
+      '3 BR (from 31,905,317 AED) - 4,785 sq.ft.',
+      '4 BR (from 37,661,508 AED) - 5,693 sq.ft.',
+      '5 BR (from 80,012,051 AED) - 10,027 sq.ft.',
+    ],
+    paymentPlans: [
+      'Resale allowed after 40%',
+      'Completion: Q3/2028',
+    ],
+    amenities: [
+      'Spa & fitness center with yoga studio',
+      'Various types of saunas & Japanese bath',
+      'Swimming & infinity pools',
+      'Tea house, library & music lounge',
+      'Children’s area & open-air cinema with waterfall',
+      'Concierge services',
+    ],
+    images: [eywaImg1, eywaImg2, eywaImg3, eywaImg4, eywaImg5, eywaImg6, eywaImg7],
   },
 ];
 
