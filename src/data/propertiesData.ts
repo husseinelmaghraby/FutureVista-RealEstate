@@ -257,7 +257,7 @@ export const properties: Property[] = [
     ],
     images: [eywaImg1, eywaImg2, eywaImg3, eywaImg4, eywaImg5, eywaImg6, eywaImg7],
   },
-  {
+{
     id: 'al-mamsha-souks',
     title: 'AL MAMSHA SOUKS',
     developer: 'Alef',
@@ -268,9 +268,9 @@ export const properties: Property[] = [
     status: 'Ready',
     location: 'Sharjah',
     area: 'Al Mamsha, Sharjah',
-    beds: 0,
+    beds: 1,
     baths: 1,
-    size: 401,
+    size: 720,
     paymentPlan: 'Ready to Move / Modern Community',
     handover: 'Ready',
     image: mamshaImg1,
@@ -287,6 +287,7 @@ export const properties: Property[] = [
     description:
       'Al Mamsha Souks is the first phase of the Al Mamsha residential project from the developer Alef in the heart of Sharjah. The project is inspired by the architecture of the old bazaars in the Emirate of Sharjah and is designed with the latest technology in accordance with the requirements of environmental protection, which enhances human health and well-being through the use of shaded footpaths in harmony with the architecture.\n\nThe complex includes 33 buildings, consisting of ground floors and 7-9 residential floors. The exterior of the buildings is characterized by a modern and elegant design, organically integrated into the landscape, complemented by beautiful greenery and water elements, creating a calm and refreshing atmosphere. The project includes studios and apartments with 1-3 bedrooms, as well as commercial premises.\n\nResidents have access to a state-of-the-art gym and swimming pool, as well as a lively shopping area. Strategically located: just 2 minutes to University City of Sharjah, 4 minutes to Sheikh Mohammad Bin Zayed Road, 5 minutes to Sharjah School\'s Complex, 06 Mall and Sharjah International Airport, and 15 minutes to Dubai International Airport.',
     availableUnits: [
+      'Studio (549,000 – 659,000 AED) - 401 sq.ft.',
       '1 BR (729,000 – 1,078,800 AED)',
       '2 BR (1,639,000 – 1,639,000 AED)',
     ],
