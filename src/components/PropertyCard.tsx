@@ -73,7 +73,14 @@ export default function PropertyCard({ property }: { property: Property }) {
 
         {/* Specs */}
         <div className="mt-4 flex items-center gap-4 border-y border-ink-100 py-3 text-xs text-ink-700">
-          <Spec icon={Bed} value={property.beds === 0 ? 'Studio' : property.beds} label="Beds" />
+          {property.beds === 0 ? (
+            <div className="flex items-center gap-1.5">
+              <Bed className="h-4 w-4 text-brand-500" />
+              <span className="font-semibold text-ink-900">Studio</span>
+            </div>
+          ) : (
+            <Spec icon={Bed} value={property.beds} label="Beds" />
+          )}
           <Spec icon={Bath} value={property.baths} label="Baths" />
           <Spec icon={Maximize} value={`${property.size.toLocaleString()}`} label="sqft" />
         </div>
