@@ -427,7 +427,7 @@ export const locations = [
   'Sharjah',
   'Business Bay, Dubai',
   'Al Jaddaf, Dubai',
-  'Mina Al Arab, Ras Al Khaimah',
+  'ENTA MINA'
 ];
 
 export const propertyTypes: ('All Types' | PropertyType)[] = [
