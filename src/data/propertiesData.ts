@@ -89,7 +89,7 @@ export const properties: Property[] = [
     id: 'wow-tower',
     title: 'THE WOW TOWER',
     developer: 'Mr. Eight Development',
-    price: 1901000,
+    price: 748,000,
     priceLabel: 'AED 1.901M',
     type: 'Apartment',
     category: 'projects',
