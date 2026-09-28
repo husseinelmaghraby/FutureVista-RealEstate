@@ -6,6 +6,14 @@ import hero4 from '../assets/hero4.jpg.jpeg';
 import joudImg1 from '../assets/First Projects.jpeg';
 import joudImg2 from '../assets/First Projects 2 .jpeg';
 
+// استيراد صور المشروع الثاني (The WOW Tower)
+import wowImg1 from '../assets/SecondProject1.webp';
+import wowImg2 from '../assets/SecondProject2.webp';
+import wowImg3 from '../assets/SecondProject3.webp';
+import wowImg4 from '../assets/SecondProject4.webp';
+import wowImg5 from '../assets/SecondProject5.webp';
+import wowImg6 from '../assets/SecondProject6.webp';
+
 export type PropertyType = 'Apartment' | 'Villa' | 'Penthouse' | 'Townhouse' | 'Commercial' | 'Luxe';
 export type ListingCategory = 'buy' | 'rent' | 'projects' | 'commercial';
 export type Status = 'Off-plan' | 'Ready';
@@ -101,6 +109,53 @@ export const heroSlides: HeroSlide[] = [
 ];
 
 export const properties: Property[] = [
+  {
+    id: 'wow-tower',
+    title: 'THE WOW TOWER',
+    developer: 'Mr. Eight Development',
+    price: 1901000,
+    priceLabel: 'AED 1.901M',
+    type: 'Apartment',
+    category: 'projects',
+    status: 'Off-plan',
+    location: 'Dubailand',
+    area: 'Dubailand Residence Complex',
+    beds: 2,
+    baths: 2,
+    size: 376,
+    paymentPlan: 'EOI: 70,000 AED / Resale after 24%',
+    handover: 'Q3/2029',
+    image: wowImg1,
+    gallery: [wowImg1, wowImg2, wowImg3, wowImg4, wowImg5, wowImg6],
+    featured: true,
+    view: 'Community & Skyline View',
+    refNo: 'FV-WOW01',
+    completionDate: 'Q3/2029',
+    listedTime: 'Just now',
+    eligibility: 'Freehold - Ownership for All Nationalities',
+    floors: 'Tower 1 - G+5P+15C+A+22+R',
+    description:
+      'The WOW Tower by Mr. Eight Development is a brand-new residential launch located in Dubailand Residence Complex. Featuring high-end luxury apartments, semi-furnished units with premium kitchen appliances, and freehold ownership.',
+    availableUnits: [
+      'Studio (748,000 – 833,000 AED)',
+      '1 BR (1,124,000 – 1,424,000 AED)',
+      '2 BR (1,901,000 – 2,421,000 AED)',
+      'Office (3,041,850 – 6,568,800 AED)',
+      'Retail (12,442,500 – 34,701,450 AED)',
+    ],
+    paymentPlans: [
+      'Expression of Interest (EOI): 70,000 AED',
+      'Resale Allowed After 24% Payment',
+    ],
+    amenities: [
+      'Luxurious Semi-Furnished Apartments',
+      'Fully Fitted Kitchen Appliances',
+      'Service Charge: 25.00 AED/ft²',
+      'Retail & Office Spaces',
+      'Modern High-Rise Facilities',
+    ],
+    images: [wowImg1, wowImg2, wowImg3, wowImg4, wowImg5, wowImg6],
+  },
   {
     id: 'joud-tower',
     title: 'JOUD TOWER',
