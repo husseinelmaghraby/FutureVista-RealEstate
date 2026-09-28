@@ -18,6 +18,7 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 import { properties, formatPrice } from '../data/propertiesData';
+import companyLogo from '../assets/logofuture.png';
 
 export default function PropertyDetails() {
   const { id } = useParams();
@@ -196,7 +197,7 @@ export default function PropertyDetails() {
 
             {/* Description */}
             <h2 className="mt-8 mb-3 font-display text-lg font-bold text-ink-900">Description</h2>
-            <p className="text-sm leading-relaxed text-ink-700">{property.description}</p>
+            <p className="text-sm leading-relaxed text-ink-700 whitespace-pre-line">{property.description}</p>
 
             {/* Highlights */}
             <h2 className="mt-8 mb-3 font-display text-lg font-bold text-ink-900">Highlights</h2>
@@ -221,26 +222,33 @@ export default function PropertyDetails() {
           <div className="lg:col-span-1">
             <div className="lg:sticky lg:top-24">
               <div className="rounded-2xl border border-ink-100 bg-white p-6 shadow-card">
+                
+                {/* تعديل الترويسة لعرض اللوجو الحقيقي بدلاً من النص والأيقونة */}
                 <div className="mb-4 flex items-center gap-3 border-b border-ink-100 pb-4">
-                  <div className="grid h-11 w-11 place-items-center rounded-lg bg-ink-950 text-white">
-                    <Building2 className="h-5 w-5" />
+                  <div className="w-12 h-12 flex items-center justify-center overflow-hidden rounded-xl bg-black p-1 shrink-0">
+                    <img 
+                      src={companyLogo} 
+                      alt="Future Vista Real Estate" 
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <div>
-                    <div className="font-display text-sm font-bold uppercase tracking-wider text-ink-900">
-                      Future Vista
-                    </div>
-                    <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-ink-500">
-                      Real Estate
-                    </div>
+                    <h3 className="font-serif text-lg font-bold tracking-wider text-ink-900 leading-tight">
+                      FUTURE VISTA
+                    </h3>
+                    <p className="text-xs text-ink-400 tracking-widest uppercase">
+                      REAL ESTATE
+                    </p>
                   </div>
                 </div>
+
                 <div className="mb-4 text-sm text-ink-600">
                   Interested in this property? Reach out to our team for pricing, payment plans,
                   and viewings.
                 </div>
                 <a
-                  href={`https://wa.me/97145550199?text=${encodeURIComponent(
-                    `Hello, I'm interested in ${property.title} (Ref: ${property.refNo})`
+                  href={`https://wa.me/971529555810?text=${encodeURIComponent(
+                    `Hello, I'm interested in ${property.title} (Ref:${property.refNo})`
                   )}`}
                   target="_blank"
                   rel="noreferrer"
