@@ -421,7 +421,6 @@ export const properties: Property[] = [
 ];
 
 export const locations = [
-export const locations = [
   'All Locations',
   'Al Mamzar',
   'Dubailand',
