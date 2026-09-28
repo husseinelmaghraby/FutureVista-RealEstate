@@ -1,3 +1,4 @@
+import companyLogo from '../assets/logofuture.png';
 import joudImg1 from '../assets/First Projects.jpeg';
 import joudImg2 from '../assets/First Projects 2 .jpeg';
 
