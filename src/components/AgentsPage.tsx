@@ -50,7 +50,7 @@ export default function AgentsPage() {
             >
               <div className="flex flex-col items-center w-full">
                 {/* إطار الصورة الطولي المتناسق تماماً مع تصميم بولت */}
-                <div className="relative h-56 w-full overflow-hidden rounded-2xl bg-brand-50/30 p-1 border border-brand-100/60">
+                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl bg-brand-50/30 p-1.5 border border-brand-100/60">
                   {agent.image ? (
                     <img
                       src={agent.image}
