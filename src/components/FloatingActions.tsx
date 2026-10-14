@@ -137,7 +137,7 @@ export default function FloatingActions() {
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 0 100 100" 
-            className="h-5 w-5 shrink-0 transition-transform group-hover:scale-110"
+            className="h-7 w-7 shrink-0 transition-transform group-hover:scale-110"
           >
             {/* الدائرة الخارجية للعدسة */}
             <circle cx="55" cy="45" r="28" fill="none" stroke="currentColor" strokeWidth="8" className="text-[#24ba72] group-hover:text-white transition-colors" />
