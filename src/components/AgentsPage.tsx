@@ -18,7 +18,7 @@ const featuredAgents: Agent[] = [
     role: 'Luxury Property & Investment Advisor',
     phone: '+971 55 920 8078',
     whatsapp: '971559208078',
-    image: safaeImg, // تم ربط الصورة هنا
+    image: safaeImg,
   },
 ];
 
@@ -51,12 +51,12 @@ export default function AgentsPage() {
               <div>
                 {/* Top Section: Photo / Avatar + Contact Arrow */}
                 <div className="flex items-start justify-between">
-                  <div className="relative h-20 w-20 overflow-hidden rounded-2xl border-2 border-brand-100 bg-brand-50 shadow-inner">
+                  <div className="relative h-28 w-28 overflow-hidden rounded-2xl border-2 border-brand-100 bg-brand-50/50 shadow-inner p-1">
                     {agent.image ? (
                       <img
                         src={agent.image}
                         alt={agent.name}
-                        className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                        className="h-full w-full object-contain object-top transition-transform duration-500 group-hover:scale-105"
                       />
                     ) : (
                       <div className="grid h-full w-full place-items-center font-display text-2xl font-bold text-brand-600">
