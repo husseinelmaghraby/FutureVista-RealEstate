@@ -57,23 +57,22 @@ export default function CategoryPage() {
 
   const filtered = useMemo(() => {
     return properties.filter((p) => {
+      // 1. فلترة خاصة بـ Luxe لو المشروع معلّم كـ luxe
       if (category === 'luxe') {
         if (!p.luxe) return false;
-      } else if (category === 'commercial') {
-        if (p.type !== 'Commercial') return false;
-      } else if (category === 'projects') {
-        if (p.category !== 'off-plan' && p.category !== 'projects') return false;
-      } else if (category === 'buy') {
-        if (p.category !== 'buy' && p.category !== 'off-plan' && p.category !== 'ready') {
-          return false;
-        }
-      } else if (category === 'rent') {
-        if (p.category !== 'rent') return false;
-      } else {
+      } 
+      // 2. فلترة خاصة بـ Commercial لو القسم تجاري
+      else if (category === 'commercial') {
+        if (p.type !== 'Commercial' && p.category !== 'commercial') return false;
+      } 
+      // 3. المطابقة المباشرة للـ category اللي انت محدده في المشروع (buy, projects, rent, etc.)
+      else {
         if (p.category !== category) return false;
       }
 
+      // 4. فلترة نوع العقار (شقة، فلة، بنتهاوس) بناءً على اختيار القائمة المنسدلة (Dropdown)
       if (typeFilter && p.type !== typeFilter) return false;
+
       return true;
     });
   }, [category, typeFilter]);
