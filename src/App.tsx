@@ -81,7 +81,7 @@ function HomePage() {
   const filtered = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
     return properties.filter((p) => {
-      if (p.category !== activeTab) return false;
+      if (!(Array.isArray(p.category) ? p.category.includes(activeTab) : p.category === activeTab)) return false;
       if (filters.location !== 'All Locations' && p.location !== filters.location && !p.area.includes(filters.location))
         return false;
       if (filters.type !== 'All Types') {
