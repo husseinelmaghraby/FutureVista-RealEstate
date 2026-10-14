@@ -388,7 +388,7 @@ export const properties: Property[] = [
     price: 1721000,
     priceLabel: 'AED 1.7M Starting From',
     type: 'Apartment',
-    category: 'projects',
+    category: ['buy', 'projects'],
     status: 'Off-plan',
     location: 'Mina Al Arab, Ras Al Khaimah',
     area: 'Mina Al Arab, Hayat Island',
