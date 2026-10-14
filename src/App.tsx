@@ -152,7 +152,7 @@ function HomePage() {
       </section>
 
       {/* Listings */}
-      <section ref={listingsRef} className="bg-ink-50/60 py-16 sm:py-20">
+      <section id="listings" ref={listingsRef} className="scroll-mt-16 bg-ink-50/60 py-16 sm:py-20">
         <div className="container-x">
           <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
