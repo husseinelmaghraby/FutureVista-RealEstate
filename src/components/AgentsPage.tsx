@@ -1,15 +1,15 @@
 import { Phone, ArrowUpRight, MessageCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-// استورد صورة Safae هنا لو جاهزة عندك في مجلد assets:
-// import safaeImg from '../assets/safae.jpg';
+// استيراد صورة Safae مباشرةً من مجلد assets
+import safaeImg from '../assets/safae.jpg';
 
 interface Agent {
   name: string;
   role: string;
   phone: string;
-  whatsapp: string; // رقم الواتساب بدون مساحات أو رموز
-  image?: string;   // رابط الصورة
+  whatsapp: string;
+  image?: string;
 }
 
 const featuredAgents: Agent[] = [
@@ -18,7 +18,7 @@ const featuredAgents: Agent[] = [
     role: 'Luxury Property & Investment Advisor',
     phone: '+971 55 920 8078',
     whatsapp: '971559208078',
-    // image: safaeImg, // فك الكومنت أول ما تضيف صورتها في assets
+    image: safaeImg, // تم ربط الصورة هنا
   },
 ];
 
@@ -59,7 +59,6 @@ export default function AgentsPage() {
                         className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                       />
                     ) : (
-                      /* أول حرف من الاسم بشكل شيك لو الصورة مش موجودة */
                       <div className="grid h-full w-full place-items-center font-display text-2xl font-bold text-brand-600">
                         {agent.name.charAt(0)}
                       </div>
@@ -84,7 +83,7 @@ export default function AgentsPage() {
 
               {/* Actions Footer: Direct Phone + WhatsApp */}
               <div className="mt-6 border-t border-ink-100 pt-4 flex items-center justify-between gap-2">
-                {/* اتصل المباشر */}
+                {/* الاتصال الهاتفي المباشر */}
                 <a
                   href={`tel:${agent.phone.replace(/\s+/g, '')}`}
                   className="flex items-center gap-2 text-xs font-semibold text-ink-700 transition-colors hover:text-brand-600"
