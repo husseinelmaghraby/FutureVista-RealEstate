@@ -33,15 +33,15 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { label: 'New Projects', icon: Building2, to: '/' },
-  {
+ {
     label: 'Buy',
     icon: Home,
-    to: '/listings/buy',
+    to: '/category/buy',
     children: [
-      { label: 'Apartments for Sale', desc: 'Studios to 4-bed apartments', icon: Home, to: '/listings/buy?type=apartment' },
-      { label: 'Villas for Sale', desc: 'Standalone & townhouses', icon: Building2, to: '/listings/buy?type=villa' },
-      { label: 'Penthouses', desc: 'Sky-high luxury living', icon: Crown, to: '/listings/buy?type=penthouse' },
-      { label: 'Commercial', desc: 'Offices & retail spaces', icon: Store, to: '/listings/commercial' },
+      { label: 'Apartments for Sale', desc: 'Studios to 4-bed apartments', icon: Home, to: '/category/buy?type=apartment' },
+      { label: 'Villas for Sale', desc: 'Standalone & townhouses', icon: Building2, to: '/category/buy?type=villa' },
+      { label: 'Penthouses', desc: 'Sky-high luxury living', icon: Crown, to: '/category/buy?type=penthouse' },
+      { label: 'Commercial', desc: 'Offices & retail spaces', icon: Store, to: '/category/commercial' },
     ],
   },
   {
