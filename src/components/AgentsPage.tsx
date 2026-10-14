@@ -1,11 +1,25 @@
-import { Phone, Users, ArrowUpRight } from 'lucide-react';
+import { Phone, ArrowUpRight, MessageCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-const featuredAgents = [
-  { name: 'Sarah Ahmed', role: 'Luxury Villas Specialist', phone: '+971 4 555 0199' },
-  { name: 'Michael Scott', role: 'Commercial & Retail Expert', phone: '+971 4 555 0200' },
-  { name: 'Elena Rostova', role: 'Downtown & Marina Consultant', phone: '+971 4 555 0201' },
-  { name: 'Karim Omar', role: 'Off-Plan Investment Advisor', phone: '+971 4 555 0202' },
+// استورد صورة Safae هنا لو جاهزة عندك في مجلد assets:
+// import safaeImg from '../assets/safae.jpg';
+
+interface Agent {
+  name: string;
+  role: string;
+  phone: string;
+  whatsapp: string; // رقم الواتساب بدون مساحات أو رموز
+  image?: string;   // رابط الصورة
+}
+
+const featuredAgents: Agent[] = [
+  {
+    name: 'Safae Haouar',
+    role: 'Luxury Property & Investment Advisor',
+    phone: '+971 55 920 8078',
+    whatsapp: '971559208078',
+    // image: safaeImg, // فك الكومنت أول ما تضيف صورتها في assets
+  },
 ];
 
 export default function AgentsPage() {
@@ -32,25 +46,63 @@ export default function AgentsPage() {
           {featuredAgents.map((agent) => (
             <div
               key={agent.name}
-              onClick={() => navigate('/contact')}
-              className="group cursor-pointer rounded-2xl border border-ink-200/80 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-card"
+              className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-ink-200/80 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-card"
             >
-              <div className="flex items-start justify-between">
-                <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-50 text-brand-600 transition-colors duration-300 group-hover:bg-brand-600 group-hover:text-white">
-                  <Users className="h-5 w-5" />
+              <div>
+                {/* Top Section: Photo / Avatar + Contact Arrow */}
+                <div className="flex items-start justify-between">
+                  <div className="relative h-20 w-20 overflow-hidden rounded-2xl border-2 border-brand-100 bg-brand-50 shadow-inner">
+                    {agent.image ? (
+                      <img
+                        src={agent.image}
+                        alt={agent.name}
+                        className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                      />
+                    ) : (
+                      /* أول حرف من الاسم بشكل شيك لو الصورة مش موجودة */
+                      <div className="grid h-full w-full place-items-center font-display text-2xl font-bold text-brand-600">
+                        {agent.name.charAt(0)}
+                      </div>
+                    )}
+                  </div>
+
+                  <button
+                    onClick={() => navigate('/contact')}
+                    className="rounded-full p-2 text-ink-300 transition-colors duration-300 hover:bg-brand-50 hover:text-brand-600"
+                    title="Contact Agent"
+                  >
+                    <ArrowUpRight className="h-5 w-5" />
+                  </button>
                 </div>
-                <ArrowUpRight className="h-5 w-5 text-ink-300 transition-colors duration-300 group-hover:text-brand-600" />
+
+                {/* Details */}
+                <h3 className="mt-5 font-display text-lg font-bold text-ink-950 transition-colors duration-200 group-hover:text-brand-600">
+                  {agent.name}
+                </h3>
+                <p className="mt-1 text-sm text-ink-500 min-h-[40px]">{agent.role}</p>
               </div>
 
-              <h3 className="mt-5 font-display text-lg font-bold text-ink-950 transition-colors duration-200 group-hover:text-brand-600">
-                {agent.name}
-              </h3>
-              <p className="mt-1 text-sm text-ink-500">{agent.role}</p>
-              
-              <div className="mt-6 border-t border-ink-100 pt-4">
-                <p className="flex items-center gap-2 text-sm font-medium text-ink-700 transition-colors duration-200 group-hover:text-ink-900">
-                  <Phone className="h-4 w-4 text-brand-600" /> {agent.phone}
-                </p>
+              {/* Actions Footer: Direct Phone + WhatsApp */}
+              <div className="mt-6 border-t border-ink-100 pt-4 flex items-center justify-between gap-2">
+                {/* اتصل المباشر */}
+                <a
+                  href={`tel:${agent.phone.replace(/\s+/g, '')}`}
+                  className="flex items-center gap-2 text-xs font-semibold text-ink-700 transition-colors hover:text-brand-600"
+                >
+                  <Phone className="h-4 w-4 text-brand-600" />
+                  <span>{agent.phone}</span>
+                </a>
+
+                {/* زرار الواتساب المباشر */}
+                <a
+                  href={`https://wa.me/${agent.whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="grid h-8 w-8 place-items-center rounded-full bg-emerald-50 text-emerald-600 transition-colors hover:bg-emerald-500 hover:text-white"
+                  title={`Chat with ${agent.name} on WhatsApp`}
+                >
+                  <MessageCircle className="h-4 w-4" />
+                </a>
               </div>
             </div>
           ))}
