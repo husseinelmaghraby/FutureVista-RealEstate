@@ -55,24 +55,29 @@ export default function CategoryPage() {
   const typeParam = searchParams.get('type')?.toLowerCase() ?? '';
   const typeFilter = typeFilterMap[typeParam];
 
-const filtered = useMemo(() => {
+  const filtered = useMemo(() => {
     return properties.filter((p) => {
+      // 1. فلترة التصنيف الأساسي
       if (category === 'luxe') {
         if (!p.luxe) return false;
       } else if (category === 'commercial') {
         if (p.type !== 'Commercial') return false;
       } else if (category === 'projects') {
-        if (p.category !== 'off-plan' && p.category !== 'projects' && p.category !== 'buy') return false;
+        if (p.category !== 'projects' && p.category !== 'off-plan' && p.category !== 'buy') return false;
       } else if (category === 'buy') {
-        // قسم الشراء هيعرض كل المشاريع المتاحة للبيع بدون استثناء
-        return true;
+        // قسم Buy هيعرض كل المشاريع والـ buy والـ projects والـ ready
+        if (p.category !== 'buy' && p.category !== 'projects' && p.category !== 'off-plan' && p.category !== 'ready') {
+          return false;
+        }
       } else if (category === 'rent') {
         if (p.category !== 'rent') return false;
       } else {
         if (p.category !== category) return false;
       }
 
+      // 2. فلترة النوع الفرعي (شقق، فلل، بنتهاوس) القادم من قائمة Buy المنسدلة
       if (typeFilter && p.type !== typeFilter) return false;
+      
       return true;
     });
   }, [category, typeFilter]);
