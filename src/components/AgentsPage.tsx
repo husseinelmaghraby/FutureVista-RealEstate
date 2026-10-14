@@ -1,8 +1,11 @@
 import { Phone, ArrowUpRight, MessageCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-// استيراد صورة Safae مباشرةً من مجلد assets
+// استيراد صور الوكلاء مباشرةً من مجلد assets
+import modatherImg from '../assets/modather.jpg';
 import safaeImg from '../assets/safae.jpg';
+import maisImg from '../assets/Mais.jpg';
+import nairozImg from '../assets/Nairoz.jpg';
 
 interface Agent {
   name: string;
@@ -14,11 +17,32 @@ interface Agent {
 
 const featuredAgents: Agent[] = [
   {
+    name: 'Modather Mostafa',
+    role: 'CEO & Founder',
+    phone: '+971 52 955 5810',
+    whatsapp: '971529555810',
+    image: modatherImg,
+  },
+  {
     name: 'Safae Haouar',
     role: 'Luxury Property & Investment Advisor',
     phone: '+971 55 920 8078',
     whatsapp: '971559208078',
     image: safaeImg,
+  },
+  {
+    name: 'Mais Takla',
+    role: 'Luxury Investment Consultant',
+    phone: '+971 55 133 1279',
+    whatsapp: '971551331279',
+    image: maisImg,
+  },
+  {
+    name: 'Nairoz Abo karam',
+    role: 'Senior Property Investment Advisor',
+    phone: '+971 50 518 1729',
+    whatsapp: '971505181729',
+    image: nairozImg,
   },
 ];
 
@@ -41,21 +65,21 @@ export default function AgentsPage() {
           </p>
         </div>
 
-        {/* Grid Cards: على الموبايل كارت واحد وعلى الشاشات الأكبر يتوزع تلقائياً */}
-        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Grid Cards */}
+        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-center">
           {featuredAgents.map((agent) => (
             <div
               key={agent.name}
-              className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-ink-200/80 bg-white p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-card"
+              className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-ink-200/80 bg-white p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-card w-full max-w-[280px]"
             >
               <div className="flex flex-col items-center w-full">
-                {/* إطار الصورة الطولي المتناسق تماماً مع تصميم بولت */}
-                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl bg-brand-50/30 p-1.5 border border-brand-100/60">
+                {/* إطار الصورة بارتفاع ثابت لضمان ظهور الصورة بالكامل بدون زوم */}
+                <div className="relative h-64 w-full overflow-hidden rounded-2xl bg-brand-50/30 p-1.5 border border-brand-100/60">
                   {agent.image ? (
                     <img
                       src={agent.image}
                       alt={agent.name}
-                      className="h-full w-full rounded-xl object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      className="h-full w-full rounded-xl object-contain object-bottom transition-transform duration-500 group-hover:scale-105"
                     />
                   ) : (
                     <div className="grid h-full w-full place-items-center rounded-xl bg-brand-50 font-display text-3xl font-bold text-brand-600">
@@ -75,7 +99,7 @@ export default function AgentsPage() {
 
                 {/* البيانات متسنترة وفي النص */}
                 <div className="mt-5 text-center">
-                  <h3 className="font-display text-xl font-bold text-ink-950 transition-colors duration-200 group-hover:text-brand-600">
+                  <h3 className="font-display text-lg font-bold text-ink-950 transition-colors duration-200 group-hover:text-brand-600">
                     {agent.name}
                   </h3>
                   <p className="mt-1 text-xs text-ink-500 min-h-[32px]">{agent.role}</p>
