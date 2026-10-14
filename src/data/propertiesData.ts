@@ -192,7 +192,7 @@ export const properties: Property[] = [
     price: 1325000,
     priceLabel: 'AED 1.325M',
     type: 'Apartment',
-    category: 'projects',
+    category: ['buy', 'projects'],
     status: 'Off-plan',
     location: 'Al Mamzar',
     area: 'Al Mamzar, Sharjah',
