@@ -88,6 +88,7 @@ export interface Property {
   serviceCharge?: string;
   furnishing?: string;
   eoi?: string;
+  tags?: string[];
 }
 
 export interface HeroSlide {
