@@ -57,20 +57,21 @@ export default function CategoryPage() {
 
   const filtered = useMemo(() => {
     return properties.filter((p) => {
-      // 1. فلترة خاصة بـ Luxe لو المشروع معلّم كـ luxe
+      // التحقق من توافق المشروع مع القسم الحالي
       if (category === 'luxe') {
         if (!p.luxe) return false;
-      } 
-      // 2. فلترة خاصة بـ Commercial لو القسم تجاري
-      else if (category === 'commercial') {
+      } else if (category === 'commercial') {
         if (p.type !== 'Commercial' && p.category !== 'commercial') return false;
-      } 
-      // 3. المطابقة المباشرة للـ category اللي انت محدده في المشروع (buy, projects, rent, etc.)
-      else {
-        if (p.category !== category) return false;
+      } else {
+        // لو الـ category في المشروع عبارة عن مصفوفة أو كلمة مفردة
+        const isMatch = Array.isArray(p.category) 
+          ? p.category.includes(category) 
+          : p.category === category;
+          
+        if (!isMatch) return false;
       }
 
-      // 4. فلترة نوع العقار (شقة، فلة، بنتهاوس) بناءً على اختيار القائمة المنسدلة (Dropdown)
+      // فلترة النوع الفرعي (شقق، فلل، إلخ) القادم من القائمة المنسدلة
       if (typeFilter && p.type !== typeFilter) return false;
 
       return true;
