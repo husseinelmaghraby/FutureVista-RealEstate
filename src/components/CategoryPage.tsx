@@ -57,16 +57,14 @@ export default function CategoryPage() {
 
   const filtered = useMemo(() => {
     return properties.filter((p) => {
-      // 1. فلترة التصنيف الأساسي
       if (category === 'luxe') {
         if (!p.luxe) return false;
       } else if (category === 'commercial') {
         if (p.type !== 'Commercial') return false;
       } else if (category === 'projects') {
-        if (p.category !== 'projects' && p.category !== 'off-plan' && p.category !== 'buy') return false;
+        if (p.category !== 'off-plan' && p.category !== 'projects') return false;
       } else if (category === 'buy') {
-        // قسم Buy هيعرض كل المشاريع والـ buy والـ projects والـ ready
-        if (p.category !== 'buy' && p.category !== 'projects' && p.category !== 'off-plan' && p.category !== 'ready') {
+        if (p.category !== 'buy' && p.category !== 'off-plan' && p.category !== 'ready') {
           return false;
         }
       } else if (category === 'rent') {
@@ -75,9 +73,7 @@ export default function CategoryPage() {
         if (p.category !== category) return false;
       }
 
-      // 2. فلترة النوع الفرعي (شقق، فلل، بنتهاوس) القادم من قائمة Buy المنسدلة
       if (typeFilter && p.type !== typeFilter) return false;
-      
       return true;
     });
   }, [category, typeFilter]);
