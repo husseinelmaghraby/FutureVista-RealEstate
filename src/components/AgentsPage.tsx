@@ -42,28 +42,28 @@ export default function AgentsPage() {
         </div>
 
         {/* Grid Cards */}
-        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {featuredAgents.map((agent) => (
             <div
               key={agent.name}
-              className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-ink-200/80 bg-white p-4 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-card"
+              className="group flex flex-col items-center justify-between overflow-hidden rounded-2xl border border-ink-200/80 bg-white p-5 text-center shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-card"
             >
               <div className="flex flex-col items-center w-full">
-                {/* حاوية الصورة بارتفاع أصغر وملموم (h-56) */}
-                <div className="relative h-56 w-full overflow-hidden rounded-xl bg-brand-50/30 p-1 border border-brand-100/60">
+                {/* مربع الصورة بالمقاس المظبوط والمسنتر */}
+                <div className="relative h-56 w-full overflow-hidden rounded-xl border border-brand-100 bg-brand-50/30">
                   {agent.image ? (
                     <img
                       src={agent.image}
                       alt={agent.name}
-                      className="h-full w-full rounded-lg object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     />
                   ) : (
-                    <div className="grid h-full w-full place-items-center rounded-lg bg-brand-50 font-display text-2xl font-bold text-brand-600">
+                    <div className="grid h-full w-full place-items-center font-display text-3xl font-bold text-brand-600">
                       {agent.name.charAt(0)}
                     </div>
                   )}
 
-                  {/* زرار التواصل السريع */}
+                  {/* زرار التواصل السريع فوق الصورة */}
                   <button
                     onClick={() => navigate('/contact')}
                     className="absolute right-2.5 top-2.5 grid h-7 w-7 place-items-center rounded-full bg-white/90 text-ink-700 shadow-sm backdrop-blur-sm transition-colors hover:bg-brand-600 hover:text-white"
@@ -74,16 +74,14 @@ export default function AgentsPage() {
                 </div>
 
                 {/* البيانات متسنترة */}
-                <div className="mt-3 text-center">
-                  <h3 className="font-display text-base font-bold text-ink-950 transition-colors duration-200 group-hover:text-brand-600">
-                    {agent.name}
-                  </h3>
-                  <p className="mt-0.5 text-xs text-ink-500 min-h-[28px]">{agent.role}</p>
-                </div>
+                <h3 className="mt-4 font-display text-lg font-bold text-ink-950 transition-colors duration-200 group-hover:text-brand-600">
+                  {agent.name}
+                </h3>
+                <p className="mt-1 text-xs text-ink-500 min-h-[32px]">{agent.role}</p>
               </div>
 
-              {/* أزرار الاتصال والواتساب بالأسفل */}
-              <div className="mt-4 w-full border-t border-ink-100 pt-3 flex items-center justify-between gap-2">
+              {/* أزرار الاتصال والواتساب */}
+              <div className="mt-5 w-full border-t border-ink-100 pt-4 flex items-center justify-between">
                 <a
                   href={`tel:${agent.phone.replace(/\s+/g, '')}`}
                   className="flex items-center gap-1.5 text-xs font-semibold text-ink-700 transition-colors hover:text-brand-600"
