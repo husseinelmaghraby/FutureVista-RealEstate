@@ -49,6 +49,9 @@ const typeFilterMap: Record<string, string> = {
   staff: 'Apartment',
 };
 
+// الكلمات اللي بتشتغل مع حقل tags في ملف البيانات
+const tagKeys = ['offices', 'retail', 'warehouses', 'staff', 'signature', 'islands', 'mansions', 'brand'];
+
 // بتحول الـ category (نص أو مصفوفة) لمصفوفة حروف صغيرة
 const toList = (c: string | string[] | undefined) =>
   (Array.isArray(c) ? c : [c ?? '']).map((x) => x.toLowerCase());
@@ -57,7 +60,9 @@ export default function CategoryPage() {
   const { category = 'buy' } = useParams();
   const [searchParams] = useSearchParams();
   const typeParam = searchParams.get('type')?.toLowerCase() ?? '';
-  const typeFilter = typeFilterMap[typeParam];
+
+  const tagFilter = tagKeys.includes(typeParam) ? typeParam : '';
+  const typeFilter = tagFilter ? undefined : typeFilterMap[typeParam];
 
   const filtered = useMemo(() => {
     const current = category.toLowerCase();
@@ -73,12 +78,12 @@ export default function CategoryPage() {
         return false;
       }
 
-      // فلترة نوع العقار من القائمة المنسدلة
       if (typeFilter && p.type !== typeFilter) return false;
+      if (tagFilter && !p.tags?.map((t) => t.toLowerCase()).includes(tagFilter)) return false;
 
       return true;
     });
-  }, [category, typeFilter]);
+  }, [category, typeFilter, tagFilter]);
 
   const meta = categoryMeta[category] ?? categoryMeta.buy;
 
@@ -105,6 +110,7 @@ export default function CategoryPage() {
             <div className="text-sm text-ink-500">
               <span className="font-semibold text-ink-900">{filtered.length}</span> properties
               {typeFilter && <span className="ml-1">in {typeFilter}s</span>}
+              {tagFilter && <span className="ml-1 capitalize">in {tagFilter}</span>}
             </div>
           </div>
         </div>
