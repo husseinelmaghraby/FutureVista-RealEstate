@@ -259,6 +259,7 @@ export const properties: Property[] = [
     gallery: [eywaImg1, eywaImg2, eywaImg3, eywaImg4, eywaImg5, eywaImg6, eywaImg7],
     featured: true,
     luxe: true,
+    tags: ['signature'],
     view: 'Water & Skyline View',
     refNo: 'FV-EYWA01',
     completionDate: 'Q3/2028',
