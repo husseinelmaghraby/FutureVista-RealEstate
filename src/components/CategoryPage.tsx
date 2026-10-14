@@ -29,17 +29,22 @@ const categoryMeta: Record<string, { title: string; subtitle: string }> = {
 
 const typeFilterMap: Record<string, string> = {
   apartment: 'Apartment',
+  apartments: 'Apartment',
   villa: 'Villa',
+  villas: 'Villa',
   penthouse: 'Penthouse',
+  penthouses: 'Penthouse',
   townhouse: 'Townhouse',
+  townhouses: 'Townhouse',
   office: 'Commercial',
+  offices: 'Commercial',
   retail: 'Commercial',
+  commercial: 'Commercial',
   furnished: 'Apartment',
   annual: 'Apartment',
   signature: 'Penthouse',
   mansions: 'Villa',
   brand: 'Penthouse',
-  offices: 'Commercial',
   warehouses: 'Commercial',
   staff: 'Apartment',
 };
@@ -56,9 +61,18 @@ export default function CategoryPage() {
         if (!p.luxe) return false;
       } else if (category === 'commercial') {
         if (p.type !== 'Commercial') return false;
-      } else if (p.category !== category) {
-        return false;
+      } else if (category === 'projects') {
+        if (p.category !== 'off-plan' && p.category !== 'projects') return false;
+      } else if (category === 'buy') {
+        if (p.category !== 'buy' && p.category !== 'off-plan' && p.category !== 'ready') {
+          return false;
+        }
+      } else if (category === 'rent') {
+        if (p.category !== 'rent') return false;
+      } else {
+        if (p.category !== category) return false;
       }
+
       if (typeFilter && p.type !== typeFilter) return false;
       return true;
     });
