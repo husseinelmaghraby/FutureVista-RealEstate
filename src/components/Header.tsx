@@ -50,7 +50,7 @@ const navItems: NavItem[] = [
     to: '/listings/luxe',
     children: [
       { label: 'Signature Penthouses', desc: 'Exclusive listings', icon: Crown, to: '/listings/luxe?type=signature' },
-      { label: 'Private Islands', desc: 'Ultra-luxury estates', icon: MapPin, to: '/listings/luxe' },
+      { label: 'Private Islands', desc: 'Ultra-luxury estates', icon: MapPin, to: '/listings/luxe?type=islands' },
       { label: 'Mansions', desc: 'Palm & Meydan', icon: Building2, to: '/listings/luxe?type=mansions' },
       { label: 'Brand Residences', desc: 'Designer interiors', icon: Crown, to: '/listings/luxe?type=brand' },
     ],
