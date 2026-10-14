@@ -142,7 +142,7 @@ export const properties: Property[] = [
     price: 748000,
     priceLabel: 'AED 748k',
     type: 'Apartment',
-    category: 'buy',
+    category: ['buy', 'projects'],
     status: 'Off-plan',
     location: 'Dubailand',
     area: 'Dubailand Residence Complex',
