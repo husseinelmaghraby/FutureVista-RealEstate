@@ -245,7 +245,7 @@ export const properties: Property[] = [
     price: 9707652,
     priceLabel: 'AED 9.7M Starting From',
     type: 'Apartment',
-    category: 'projects',
+    category: ['buy', 'projects'],
     status: 'Off-plan',
     location: 'Business Bay',
     area: 'Business Bay, Dubai',
