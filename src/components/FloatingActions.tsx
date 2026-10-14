@@ -125,24 +125,28 @@ export default function FloatingActions() {
       {/* الأزرار العائمة على اليمين (Bayut + WhatsApp) */}
       <div className="fixed bottom-6 right-4 z-50 flex flex-col items-end gap-3 sm:right-6">
         
-        {/* زرار Bayut مع أيقونة بيوت البرمجية */}
+        {/* زرار Bayut الأصلي مع لوجو العدسة */}
         <a
           href="https://www.bayut.com/companies/future-vista-real-estate-109945/"
           target="_blank"
           rel="noopener noreferrer"
-          className="group inline-flex items-center gap-2.5 rounded-full bg-white px-4 py-2.5 text-xs font-bold text-ink-900 shadow-card border border-ink-100 transition-all hover:bg-[#003366] hover:text-white hover:border-[#003366] active:scale-95"
+          className="group inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-xs font-bold text-ink-900 shadow-card border border-ink-100 transition-all hover:bg-[#24ba72] hover:text-white hover:border-[#24ba72] active:scale-95"
           aria-label="Our List on Bayut"
         >
-          {/* أيقونة بيوت الرسمية (SVG) */}
-          <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-[#26b160] text-white transition-transform group-hover:scale-110">
-            <svg
-              viewBox="0 0 24 24"
-              className="h-3 w-3 fill-current"
-              aria-hidden="true"
-            >
-              <path d="M12 2L2 8.5v11L12 22l10-4.5v-11L12 2zm0 2.5l7 3.2v7.6l-7 3.1-7-3.1V7.7l7-3.2z" />
-            </svg>
-          </span>
+          {/* أيقونة لوجو بيوت الرسمية */}
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 100 100" 
+            className="h-5 w-5 shrink-0 transition-transform group-hover:scale-110"
+          >
+            {/* الدائرة الخارجية للعدسة */}
+            <circle cx="55" cy="45" r="28" fill="none" stroke="currentColor" strokeWidth="8" className="text-[#24ba72] group-hover:text-white transition-colors" />
+            {/* يد المكبرة */}
+            <line x1="33" y1="67" x2="15" y2="85" stroke="currentColor" strokeWidth="9" strokeLinecap="round" className="text-[#24ba72] group-hover:text-white transition-colors" />
+            {/* أيقونة المنزل بالداخل */}
+            <path d="M45 48 L55 38 L65 48 V58 H45 Z" fill="currentColor" className="text-[#24ba72] group-hover:text-white transition-colors" />
+            <rect x="52" y="50" width="6" height="8" fill="currentColor" className="text-white group-hover:text-[#24ba72] transition-colors" />
+          </svg>
 
           <span>Our List on Bayut</span>
           <ExternalLink className="h-3.5 w-3.5 text-ink-400 transition-colors group-hover:text-white" />
