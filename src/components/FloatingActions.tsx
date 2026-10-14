@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // ضفنا الهوك للتنقل
-import { MessageCircle, X, Send, Sparkles, Phone } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { MessageCircle, X, Send, Sparkles, Phone, ExternalLink } from 'lucide-react';
 
 export default function FloatingActions() {
   const [chatOpen, setChatOpen] = useState(false);
-  const navigate = useNavigate(); // هوك التنقل البرمجي
+  const navigate = useNavigate();
   const [messages, setMessages] = useState<{ from: 'bot' | 'user'; text: string }[]>([
     { from: 'bot', text: "Hi! I'm Sara, your Future Vista property advisor. Not sure where to start? I can help you find the perfect home." },
   ]);
@@ -100,7 +100,7 @@ export default function FloatingActions() {
           <button
             onClick={() => {
               setChatOpen(false);
-              navigate('/contact'); // توجيه مباشر لصفحة الكونتكت بدون ريفريش
+              navigate('/contact');
             }}
             className="flex w-full items-center justify-center gap-2 border-t border-ink-100 bg-ink-50 py-3 text-xs font-bold uppercase tracking-wide text-brand-700 hover:bg-ink-100"
           >
@@ -109,7 +109,7 @@ export default function FloatingActions() {
         </div>
       </div>
 
-      {/* "Future Vista Assistant" pill */}
+      {/* "Future Vista Assistant" pill (على الشمال) */}
       <button
         onClick={() => setChatOpen((o) => !o)}
         className="group fixed bottom-24 left-4 z-50 inline-flex items-center gap-2 rounded-full bg-white px-4 py-3 text-sm font-bold text-ink-900 shadow-card transition-all hover:bg-brand-600 hover:text-white sm:left-6"
@@ -122,20 +122,38 @@ export default function FloatingActions() {
         <span className="sm:hidden">Help</span>
       </button>
 
-      {/* WhatsApp */}
-      <a
-        href="https://wa.me/971529555810"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group fixed bottom-6 right-4 z-50 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-bold text-white shadow-card transition-all hover:scale-105 hover:shadow-lg sm:right-6"
-        aria-label="Chat on WhatsApp"
-      >
-        <span className="relative flex h-6 w-6 items-center justify-center">
-          <span className="absolute inline-flex h-full w-full animate-pulseRing rounded-full bg-[#25D366]/50" />
-          <MessageCircle className="relative h-5 w-5" />
-        </span>
-        <span className="hidden sm:inline">WhatsApp</span>
-      </a>
+      {/* الأزرار العائمة على اليمين (Bayut + WhatsApp) */}
+      <div className="fixed bottom-6 right-4 z-50 flex flex-col items-end gap-3 sm:right-6">
+        
+        {/* زرار Bayut */}
+        <a
+          href="https://www.bayut.com/companies/future-vista-real-estate-109945/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-xs font-bold text-ink-900 shadow-card border border-ink-100 transition-all hover:bg-[#003366] hover:text-white hover:border-[#003366] active:scale-95"
+          aria-label="Our List on Bayut"
+        >
+          <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+          <span>Our List on Bayut</span>
+          <ExternalLink className="h-3.5 w-3.5 text-ink-400 transition-colors group-hover:text-white" />
+        </a>
+
+        {/* زرار WhatsApp */}
+        <a
+          href="https://wa.me/971529555810"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-bold text-white shadow-card transition-all hover:scale-105 hover:shadow-lg"
+          aria-label="Chat on WhatsApp"
+        >
+          <span className="relative flex h-6 w-6 items-center justify-center">
+            <span className="absolute inline-flex h-full w-full animate-pulseRing rounded-full bg-[#25D366]/50" />
+            <MessageCircle className="relative h-5 w-5" />
+          </span>
+          <span className="hidden sm:inline">WhatsApp</span>
+        </a>
+
+      </div>
     </>
   );
 }
