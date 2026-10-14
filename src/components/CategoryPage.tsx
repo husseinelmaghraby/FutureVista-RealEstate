@@ -55,18 +55,17 @@ export default function CategoryPage() {
   const typeParam = searchParams.get('type')?.toLowerCase() ?? '';
   const typeFilter = typeFilterMap[typeParam];
 
-  const filtered = useMemo(() => {
+const filtered = useMemo(() => {
     return properties.filter((p) => {
       if (category === 'luxe') {
         if (!p.luxe) return false;
       } else if (category === 'commercial') {
         if (p.type !== 'Commercial') return false;
       } else if (category === 'projects') {
-        if (p.category !== 'off-plan' && p.category !== 'projects') return false;
+        if (p.category !== 'off-plan' && p.category !== 'projects' && p.category !== 'buy') return false;
       } else if (category === 'buy') {
-        if (p.category !== 'buy' && p.category !== 'off-plan' && p.category !== 'ready') {
-          return false;
-        }
+        // قسم الشراء هيعرض كل المشاريع المتاحة للبيع بدون استثناء
+        return true;
       } else if (category === 'rent') {
         if (p.category !== 'rent') return false;
       } else {
