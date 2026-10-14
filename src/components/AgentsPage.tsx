@@ -41,47 +41,49 @@ export default function AgentsPage() {
           </p>
         </div>
 
-        {/* Grid Cards */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Grid Cards: على الموبايل كارت واحد وعلى الشاشات الأكبر يتوزع تلقائياً */}
+        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {featuredAgents.map((agent) => (
             <div
               key={agent.name}
-              className="group flex flex-col items-center justify-between overflow-hidden rounded-2xl border border-ink-200/80 bg-white p-6 text-center shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-card"
+              className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-ink-200/80 bg-white p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-card"
             >
               <div className="flex flex-col items-center w-full">
-                {/* مربع الصورة كبير ومسنتر */}
-                <div className="relative h-60 w-full overflow-hidden rounded-xl border border-brand-100 bg-brand-50/30">
+                {/* إطار الصورة الطولي المتناسق تماماً مع تصميم بولت */}
+                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl bg-brand-50/30 p-1.5 border border-brand-100/60">
                   {agent.image ? (
                     <img
                       src={agent.image}
                       alt={agent.name}
-                      className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      className="h-full w-full rounded-xl object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     />
                   ) : (
-                    <div className="grid h-full w-full place-items-center font-display text-3xl font-bold text-brand-600">
+                    <div className="grid h-full w-full place-items-center rounded-xl bg-brand-50 font-display text-3xl font-bold text-brand-600">
                       {agent.name.charAt(0)}
                     </div>
                   )}
 
-                  {/* زرار التواصل السريع فوق الصورة */}
+                  {/* زرار التواصل السريع أعلى الصورة */}
                   <button
                     onClick={() => navigate('/contact')}
-                    className="absolute right-2 top-2 grid h-8 w-8 place-items-center rounded-full bg-white/90 text-ink-700 shadow-sm backdrop-blur-sm transition-colors hover:bg-brand-600 hover:text-white"
+                    className="absolute right-3 top-3 grid h-8 w-8 place-items-center rounded-full bg-white/90 text-ink-700 shadow-sm backdrop-blur-sm transition-colors hover:bg-brand-600 hover:text-white"
                     title="Contact Agent"
                   >
                     <ArrowUpRight className="h-4 w-4" />
                   </button>
                 </div>
 
-                {/* البيانات متسنترة */}
-                <h3 className="mt-5 font-display text-lg font-bold text-ink-950 transition-colors duration-200 group-hover:text-brand-600">
-                  {agent.name}
-                </h3>
-                <p className="mt-1 text-xs text-ink-500 min-h-[36px]">{agent.role}</p>
+                {/* البيانات متسنترة وفي النص */}
+                <div className="mt-5 text-center">
+                  <h3 className="font-display text-xl font-bold text-ink-950 transition-colors duration-200 group-hover:text-brand-600">
+                    {agent.name}
+                  </h3>
+                  <p className="mt-1 text-xs text-ink-500 min-h-[32px]">{agent.role}</p>
+                </div>
               </div>
 
-              {/* أزرار الاتصال والواتساب */}
-              <div className="mt-5 w-full border-t border-ink-100 pt-4 flex items-center justify-between">
+              {/* أزرار الاتصال والواتساب بالأسفل */}
+              <div className="mt-6 w-full border-t border-ink-100 pt-4 flex items-center justify-between gap-2">
                 <a
                   href={`tel:${agent.phone.replace(/\s+/g, '')}`}
                   className="flex items-center gap-2 text-xs font-semibold text-ink-700 transition-colors hover:text-brand-600"
