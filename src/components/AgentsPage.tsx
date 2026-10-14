@@ -46,44 +46,44 @@ export default function AgentsPage() {
           {featuredAgents.map((agent) => (
             <div
               key={agent.name}
-              className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-ink-200/80 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-card"
+              className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-ink-200/80 bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-card"
             >
               <div>
-                {/* Top Section: Photo / Avatar + Contact Arrow */}
-                <div className="flex items-start justify-between">
-                  <div className="relative h-28 w-28 overflow-hidden rounded-2xl border-2 border-brand-100 bg-brand-50/50 shadow-inner p-1">
-                    {agent.image ? (
-                      <img
-                        src={agent.image}
-                        alt={agent.name}
-                        className="h-full w-full object-contain object-top transition-transform duration-500 group-hover:scale-105"
-                      />
-                    ) : (
-                      <div className="grid h-full w-full place-items-center font-display text-2xl font-bold text-brand-600">
-                        {agent.name.charAt(0)}
-                      </div>
-                    )}
-                  </div>
+                {/* هيدر الصورة بعرض الكارت الكامل */}
+                <div className="relative h-72 w-full overflow-hidden bg-brand-50/50">
+                  {agent.image ? (
+                    <img
+                      src={agent.image}
+                      alt={agent.name}
+                      className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="grid h-full w-full place-items-center font-display text-4xl font-bold text-brand-600">
+                      {agent.name.charAt(0)}
+                    </div>
+                  )}
 
+                  {/* زرار الاتصال المباشر السريع فوق على اليمين */}
                   <button
                     onClick={() => navigate('/contact')}
-                    className="rounded-full p-2 text-ink-300 transition-colors duration-300 hover:bg-brand-50 hover:text-brand-600"
+                    className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-white/90 text-ink-700 shadow-sm backdrop-blur-sm transition-colors hover:bg-brand-600 hover:text-white"
                     title="Contact Agent"
                   >
                     <ArrowUpRight className="h-5 w-5" />
                   </button>
                 </div>
 
-                {/* Details */}
-                <h3 className="mt-5 font-display text-lg font-bold text-ink-950 transition-colors duration-200 group-hover:text-brand-600">
-                  {agent.name}
-                </h3>
-                <p className="mt-1 text-sm text-ink-500 min-h-[40px]">{agent.role}</p>
+                {/* تفاصيل الموظف */}
+                <div className="p-5">
+                  <h3 className="font-display text-xl font-bold text-ink-950 transition-colors duration-200 group-hover:text-brand-600">
+                    {agent.name}
+                  </h3>
+                  <p className="mt-1 text-sm text-ink-500">{agent.role}</p>
+                </div>
               </div>
 
-              {/* Actions Footer: Direct Phone + WhatsApp */}
-              <div className="mt-6 border-t border-ink-100 pt-4 flex items-center justify-between gap-2">
-                {/* الاتصال الهاتفي المباشر */}
+              {/* الفوتر: الاتصال المباشر والواتساب */}
+              <div className="mx-5 mb-5 border-t border-ink-100 pt-4 flex items-center justify-between gap-2">
                 <a
                   href={`tel:${agent.phone.replace(/\s+/g, '')}`}
                   className="flex items-center gap-2 text-xs font-semibold text-ink-700 transition-colors hover:text-brand-600"
@@ -92,15 +92,14 @@ export default function AgentsPage() {
                   <span>{agent.phone}</span>
                 </a>
 
-                {/* زرار الواتساب المباشر */}
                 <a
                   href={`https://wa.me/${agent.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="grid h-8 w-8 place-items-center rounded-full bg-emerald-50 text-emerald-600 transition-colors hover:bg-emerald-500 hover:text-white"
+                  className="grid h-9 w-9 place-items-center rounded-full bg-emerald-50 text-emerald-600 transition-colors hover:bg-emerald-500 hover:text-white"
                   title={`Chat with ${agent.name} on WhatsApp`}
                 >
-                  <MessageCircle className="h-4 w-4" />
+                  <MessageCircle className="h-4.5 w-4.5" />
                 </a>
               </div>
             </div>
