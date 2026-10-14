@@ -57,21 +57,24 @@ export default function CategoryPage() {
 
   const filtered = useMemo(() => {
     return properties.filter((p) => {
-      // التحقق من توافق المشروع مع القسم الحالي
+      // 1. فلترة Luxe
       if (category === 'luxe') {
         if (!p.luxe) return false;
-      } else if (category === 'commercial') {
+      } 
+      // 2. فلترة Commercial
+      else if (category === 'commercial') {
         if (p.type !== 'Commercial' && p.category !== 'commercial') return false;
-      } else {
-        // لو الـ category في المشروع عبارة عن مصفوفة أو كلمة مفردة
-        const isMatch = Array.isArray(p.category) 
-          ? p.category.includes(category) 
+      } 
+      // 3. الفلترة العامة (تدعم الكلمة المفردة أو المصفوفة مثل ['buy', 'projects'])
+      else {
+        const matchesCategory = Array.isArray(p.category)
+          ? p.category.includes(category)
           : p.category === category;
-          
-        if (!isMatch) return false;
+
+        if (!matchesCategory) return false;
       }
 
-      // فلترة النوع الفرعي (شقق، فلل، إلخ) القادم من القائمة المنسدلة
+      // 4. فلترة نوع العقار (شقة، فلة، إلخ) من القائمة المنسدلة
       if (typeFilter && p.type !== typeFilter) return false;
 
       return true;
