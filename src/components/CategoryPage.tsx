@@ -49,6 +49,10 @@ const typeFilterMap: Record<string, string> = {
   staff: 'Apartment',
 };
 
+// بتحول الـ category (نص أو مصفوفة) لمصفوفة حروف صغيرة
+const toList = (c: string | string[] | undefined) =>
+  (Array.isArray(c) ? c : [c ?? '']).map((x) => x.toLowerCase());
+
 export default function CategoryPage() {
   const { category = 'buy' } = useParams();
   const [searchParams] = useSearchParams();
@@ -56,25 +60,20 @@ export default function CategoryPage() {
   const typeFilter = typeFilterMap[typeParam];
 
   const filtered = useMemo(() => {
-    return properties.filter((p) => {
-      // 1. فلترة Luxe
-      if (category === 'luxe') {
-        if (!p.luxe) return false;
-      } 
-      // 2. فلترة Commercial
-      else if (category === 'commercial') {
-        if (p.type !== 'Commercial' && p.category !== 'commercial') return false;
-      } 
-      // 3. الفلترة العامة (تدعم الكلمة المفردة أو المصفوفة مثل ['buy', 'projects'])
-      else {
-        const matchesCategory = Array.isArray(p.category)
-          ? p.category.includes(category)
-          : p.category === category;
+    const current = category.toLowerCase();
 
-        if (!matchesCategory) return false;
+    return properties.filter((p) => {
+      const cats = toList(p.category);
+
+      if (current === 'luxe') {
+        if (!p.luxe) return false;
+      } else if (current === 'commercial') {
+        if (p.type !== 'Commercial' && !cats.includes('commercial')) return false;
+      } else if (!cats.includes(current)) {
+        return false;
       }
 
-      // 4. فلترة نوع العقار (شقة، فلة، إلخ) من القائمة المنسدلة
+      // فلترة نوع العقار من القائمة المنسدلة
       if (typeFilter && p.type !== typeFilter) return false;
 
       return true;
