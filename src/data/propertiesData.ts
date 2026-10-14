@@ -51,7 +51,7 @@ import entaImg8 from '../assets/Projects6-8.webp';
 import entaImg9 from '../assets/Projects6-9.webp';
 
 export type PropertyType = 'Apartment' | 'Villa' | 'Penthouse' | 'Townhouse' | 'Commercial' | 'Luxe';
-export type ListingCategory = 'buy' | 'rent' | 'projects' | 'commercial';
+export type ListingCategory = string | string[];
 export type Status = 'Off-plan' | 'Ready';
 
 export interface Property {
