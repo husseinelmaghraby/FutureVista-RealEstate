@@ -32,7 +32,7 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: 'New Projects', icon: Building2, to: '/listings/projects' },
+  { label: 'New Projects', icon: Building2, to: '/#listings' },
   {
     label: 'Buy',
     icon: Home,
