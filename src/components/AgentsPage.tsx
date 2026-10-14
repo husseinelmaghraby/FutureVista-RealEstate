@@ -6,6 +6,7 @@ import modatherImg from '../assets/modather.jpg';
 import safaeImg from '../assets/safae.jpg';
 import maisImg from '../assets/Mais.jpg';
 import nairozImg from '../assets/Nairoz.jpg';
+import youssefImg from '../assets/youssef.jpg';
 
 interface Agent {
   name: string;
@@ -43,6 +44,13 @@ const featuredAgents: Agent[] = [
     phone: '+971 50 518 1729',
     whatsapp: '971505181729',
     image: nairozImg,
+  },
+  {
+    name: 'Youssef Mamdouh',
+    role: 'Senior Property Consultant',
+    phone: '+971 52 905 5547',
+    whatsapp: '971529055547',
+    image: youssefImg,
   },
 ];
 
