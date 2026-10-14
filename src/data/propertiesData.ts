@@ -295,7 +295,7 @@ export const properties: Property[] = [
     price: 729000,
     priceLabel: 'AED 729k Starting From',
     type: 'Apartment',
-    category: 'projects',
+    category: ['buy', 'projects'],
     status: 'Ready',
     location: 'Sharjah',
     area: 'Al Mamsha, Sharjah',
