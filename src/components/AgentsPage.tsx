@@ -46,11 +46,11 @@ export default function AgentsPage() {
           {featuredAgents.map((agent) => (
             <div
               key={agent.name}
-              className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-ink-200/80 bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-card"
+              className="group flex flex-col items-center justify-between overflow-hidden rounded-2xl border border-ink-200/80 bg-white p-6 text-center shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-card"
             >
-              <div>
-                {/* هيدر الصورة بعرض الكارت الكامل */}
-                <div className="relative h-72 w-full overflow-hidden bg-brand-50/50">
+              <div className="flex flex-col items-center w-full">
+                {/* مربع الصورة كبير ومسنتر */}
+                <div className="relative h-60 w-full overflow-hidden rounded-xl border border-brand-100 bg-brand-50/30">
                   {agent.image ? (
                     <img
                       src={agent.image}
@@ -58,32 +58,30 @@ export default function AgentsPage() {
                       className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     />
                   ) : (
-                    <div className="grid h-full w-full place-items-center font-display text-4xl font-bold text-brand-600">
+                    <div className="grid h-full w-full place-items-center font-display text-3xl font-bold text-brand-600">
                       {agent.name.charAt(0)}
                     </div>
                   )}
 
-                  {/* زرار الاتصال المباشر السريع فوق على اليمين */}
+                  {/* زرار التواصل السريع فوق الصورة */}
                   <button
                     onClick={() => navigate('/contact')}
-                    className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-white/90 text-ink-700 shadow-sm backdrop-blur-sm transition-colors hover:bg-brand-600 hover:text-white"
+                    className="absolute right-2 top-2 grid h-8 w-8 place-items-center rounded-full bg-white/90 text-ink-700 shadow-sm backdrop-blur-sm transition-colors hover:bg-brand-600 hover:text-white"
                     title="Contact Agent"
                   >
-                    <ArrowUpRight className="h-5 w-5" />
+                    <ArrowUpRight className="h-4 w-4" />
                   </button>
                 </div>
 
-                {/* تفاصيل الموظف */}
-                <div className="p-5">
-                  <h3 className="font-display text-xl font-bold text-ink-950 transition-colors duration-200 group-hover:text-brand-600">
-                    {agent.name}
-                  </h3>
-                  <p className="mt-1 text-sm text-ink-500">{agent.role}</p>
-                </div>
+                {/* البيانات متسنترة */}
+                <h3 className="mt-5 font-display text-lg font-bold text-ink-950 transition-colors duration-200 group-hover:text-brand-600">
+                  {agent.name}
+                </h3>
+                <p className="mt-1 text-xs text-ink-500 min-h-[36px]">{agent.role}</p>
               </div>
 
-              {/* الفوتر: الاتصال المباشر والواتساب */}
-              <div className="mx-5 mb-5 border-t border-ink-100 pt-4 flex items-center justify-between gap-2">
+              {/* أزرار الاتصال والواتساب */}
+              <div className="mt-5 w-full border-t border-ink-100 pt-4 flex items-center justify-between">
                 <a
                   href={`tel:${agent.phone.replace(/\s+/g, '')}`}
                   className="flex items-center gap-2 text-xs font-semibold text-ink-700 transition-colors hover:text-brand-600"
@@ -96,10 +94,10 @@ export default function AgentsPage() {
                   href={`https://wa.me/${agent.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="grid h-9 w-9 place-items-center rounded-full bg-emerald-50 text-emerald-600 transition-colors hover:bg-emerald-500 hover:text-white"
+                  className="grid h-8 w-8 place-items-center rounded-full bg-emerald-50 text-emerald-600 transition-colors hover:bg-emerald-500 hover:text-white"
                   title={`Chat with ${agent.name} on WhatsApp`}
                 >
-                  <MessageCircle className="h-4.5 w-4.5" />
+                  <MessageCircle className="h-4 w-4" />
                 </a>
               </div>
             </div>
