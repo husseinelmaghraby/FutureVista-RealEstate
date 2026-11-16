@@ -77,6 +77,23 @@ import samaraImg3 from '../assets/Projects9-3.webp';
 import samaraImg4 from '../assets/Projects9-4.webp';
 import samaraImg5 from '../assets/Projects9-5.webp';
 
+// استيراد صور المشروع العاشر (Elwood Estates)
+import elwoodImg1 from '../assets/Projects10-1.webp';
+import elwoodImg2 from '../assets/Projects10-2.webp';
+import elwoodImg3 from '../assets/Projects10-3.webp';
+import elwoodImg4 from '../assets/Projects10-4.webp';
+import elwoodImg5 from '../assets/Projects10-5.webp';
+import elwoodImg6 from '../assets/Projects10-6.webp';
+import elwoodImg7 from '../assets/Projects10-7.webp';
+import elwoodImg8 from '../assets/Projects10-8.webp';
+import elwoodImg9 from '../assets/Projects10-9.webp';
+import elwoodImg10 from '../assets/Projects10-10.webp';
+import elwoodImg11 from '../assets/Projects10-11.webp';
+import elwoodImg12 from '../assets/Projects10-12.webp';
+import elwoodImg13 from '../assets/Projects10-13.webp';
+import elwoodImg14 from '../assets/Projects10-14.webp';
+import elwoodImg15 from '../assets/Projects10-15.webp';
+
 export type PropertyType = 'Apartment' | 'Villa' | 'Penthouse' | 'Townhouse' | 'Commercial' | 'Luxe';
 export type ListingCategory = string | string[];
 export type Status = 'Off-plan' | 'Ready';
@@ -596,6 +613,54 @@ export const properties: Property[] = [
       'Barbecue areas & shaded walkways',
     ],
     images: [samaraImg1, samaraImg2, samaraImg3, samaraImg4, samaraImg5],
+  },
+    {
+    id: 'elwood-estates-phase-1',
+    title: 'ELWOOD ESTATES PHASE 1',
+    developer: 'Sobha Realty',
+    price: 9915280,
+    priceLabel: 'AED 9.9M Starting From',
+    type: 'Villa',
+    category: ['buy', 'projects'],
+    status: 'Off-plan',
+    location: 'Sobha Elwood',
+    area: 'Sobha Elwood, The Valley, Dubai',
+    beds: 4,
+    baths: 5,
+    size: 4958,
+    paymentPlan: 'Resale allowed after 50%',
+    handover: 'Q2/2028',
+    image: elwoodImg1,
+    gallery: [elwoodImg1, elwoodImg2, elwoodImg3, elwoodImg4, elwoodImg5, elwoodImg6, elwoodImg7, elwoodImg8, elwoodImg9, elwoodImg10, elwoodImg11, elwoodImg12, elwoodImg13, elwoodImg14, elwoodImg15],
+    featured: true,
+    luxe: true,
+    tags: ['mansions'],
+    view: 'Greenery & Lagoon View',
+    refNo: 'FV-ELWOOD01',
+    completionDate: 'Q2/2028',
+    listedTime: 'Just now',
+    eligibility: 'Freehold (تملك حر لجميع الجنسيات)',
+    serviceCharge: '5.00 AED/ft²',
+    furnishing: 'Semi Furnished with Kitchen Appliances',
+    description:
+      'Elwood Estates Phase 1 is a premium villa community by Sobha, located in The Valley. Surrounded by lush greenery, the development offers a serene and comfortable lifestyle for those who value privacy and harmony with nature.\n\nThe project features luxurious villas with four to six bedrooms. The design is executed in a modern style using marble and wood, while elegant geometric forms and neutral tones seamlessly complement the natural surroundings. Large windows and spacious balconies provide panoramic views, creating a smooth transition between the interiors and the outdoor space.\n\nFor residents’ comfort, Elwood Estates Phase 1 offers four basketball courts, two clubhouses, scenic parks with walking paths, a lagoon, and a baobab park. Children can enjoy a dedicated playground, and there is also a school within the community.\n\nThe community is set in a convenient and dynamic part of the city: just five minutes from Dubai Rugby Sevens, eight minutes from Dubai Outlet Mall, and twenty minutes from Downtown Dubai. The trip to Dubai International Airport takes around twenty-five minutes, while Al Maktoum International Airport is approximately thirty minutes away, ensuring excellent mobility in any direction.',
+    availableUnits: [
+      'Villas (9,915,280 – 14,386,180 AED)',
+      '4 to 6 Bedrooms - 4,957 – 7,193 sq.ft.',
+    ],
+    paymentPlans: [
+      'Resale allowed after 50%',
+      'Completion: Q2/2028',
+    ],
+    amenities: [
+      'Four basketball courts & two clubhouses',
+      'Scenic parks with walking paths',
+      'Lagoon & baobab park',
+      'Children’s playground',
+      'School within the community',
+      '25 min to Dubai International Airport',
+    ],
+    images: [elwoodImg1, elwoodImg2, elwoodImg3, elwoodImg4, elwoodImg5, elwoodImg6, elwoodImg7, elwoodImg8, elwoodImg9, elwoodImg10, elwoodImg11, elwoodImg12, elwoodImg13, elwoodImg14, elwoodImg15],
   },
  ];
 
