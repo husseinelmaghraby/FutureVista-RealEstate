@@ -58,6 +58,18 @@ import dvillasImg4 from '../assets/Projects7-4.webp';
 import dvillasImg5 from '../assets/Projects7-5.webp';
 import dvillasImg6 from '../assets/Projects7-6.webp';
 
+// استيراد صور المشروع الثامن (Palace Villas Ostra)
+import ostraImg1 from '../assets/Projects8-1.webp';
+import ostraImg2 from '../assets/Projects8-2.webp';
+import ostraImg3 from '../assets/Projects8-3.webp';
+import ostraImg4 from '../assets/Projects8-4.webp';
+import ostraImg5 from '../assets/Projects8-5.webp';
+import ostraImg6 from '../assets/Projects8-6.webp';
+import ostraImg7 from '../assets/Projects8-7.webp';
+import ostraImg8 from '../assets/Projects8-8.webp';
+import ostraImg9 from '../assets/Projects8-9.webp';
+import ostraImg10 from '../assets/Projects8-10.webp';
+
 export type PropertyType = 'Apartment' | 'Villa' | 'Penthouse' | 'Townhouse' | 'Commercial' | 'Luxe';
 export type ListingCategory = string | string[];
 export type Status = 'Off-plan' | 'Ready';
