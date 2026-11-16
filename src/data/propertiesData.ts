@@ -50,6 +50,14 @@ import entaImg7 from '../assets/Projects6-7.webp';
 import entaImg8 from '../assets/Projects6-8.webp';
 import entaImg9 from '../assets/Projects6-9.webp';
 
+// استيراد صور المشروع السابع (D Villas)
+import dvillasImg1 from '../assets/Projects7-1.webp';
+import dvillasImg2 from '../assets/Projects7-2.webp';
+import dvillasImg3 from '../assets/Projects7-3.webp';
+import dvillasImg4 from '../assets/Projects7-4.webp';
+import dvillasImg5 from '../assets/Projects7-5.webp';
+import dvillasImg6 from '../assets/Projects7-6.webp';
+
 export type PropertyType = 'Apartment' | 'Villa' | 'Penthouse' | 'Townhouse' | 'Commercial' | 'Luxe';
 export type ListingCategory = string | string[];
 export type Status = 'Off-plan' | 'Ready';
