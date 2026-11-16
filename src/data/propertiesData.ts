@@ -457,6 +457,8 @@ export const properties: Property[] = [
     image: dvillasImg1,
     gallery: [dvillasImg1, dvillasImg2, dvillasImg3, dvillasImg4, dvillasImg5, dvillasImg6],
     featured: true,
+    luxe: true,
+    tags: ['mansions'],
     view: 'Golf Estate & Community View',
     refNo: 'FV-DVILLAS01',
     completionDate: 'Q4/2029',
