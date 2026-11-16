@@ -389,7 +389,7 @@ export const properties: Property[] = [
     priceLabel: 'AED 1.4M Starting From',
     type: 'Apartment',
     category: ['buy', 'projects'],
-    status: 'Off-Plan',
+    status: 'Off-plan',
     location: 'Al Jaddaf, Dubai',
     area: 'Al Jaddaf, Dubai',
     beds: 1,
