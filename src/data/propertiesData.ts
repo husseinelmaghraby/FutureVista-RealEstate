@@ -78,6 +78,7 @@ import samaraImg4 from '../assets/Projects9-4.webp';
 import samaraImg5 from '../assets/Projects9-5.webp';
 
 // استيراد صور المشروع العاشر (Elwood Estates)
+import elwoodImg2 from '../assets/Projects10-1.webp';
 import elwoodImg2 from '../assets/Projects10-2.webp';
 import elwoodImg3 from '../assets/Projects10-3.webp';
 import elwoodImg4 from '../assets/Projects10-4.webp';
