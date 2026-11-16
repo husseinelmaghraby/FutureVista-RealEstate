@@ -70,6 +70,13 @@ import ostraImg8 from '../assets/Projects8-8.webp';
 import ostraImg9 from '../assets/Projects8-9.webp';
 import ostraImg10 from '../assets/Projects8-10.webp';
 
+// استيراد صور المشروع التاسع (Samara)
+import samaraImg1 from '../assets/Projects9-1.webp';
+import samaraImg2 from '../assets/Projects9-2.webp';
+import samaraImg3 from '../assets/Projects9-3.webp';
+import samaraImg4 from '../assets/Projects9-4.webp';
+import samaraImg5 from '../assets/Projects9-5.webp';
+
 export type PropertyType = 'Apartment' | 'Villa' | 'Penthouse' | 'Townhouse' | 'Commercial' | 'Luxe';
 export type ListingCategory = string | string[];
 export type Status = 'Off-plan' | 'Ready';
@@ -545,6 +552,50 @@ export const properties: Property[] = [
       '18 min to Al Maktoum International Airport',
     ],
     images: [ostraImg1, ostraImg2, ostraImg3, ostraImg4, ostraImg5, ostraImg6, ostraImg7, ostraImg8, ostraImg9, ostraImg10],
+  },
+    {
+    id: 'samara',
+    title: 'SAMARA',
+    developer: 'Emaar Properties',
+    price: 9519888,
+    priceLabel: 'AED 9.5M Starting From',
+    type: 'Villa',
+    category: ['buy'],
+    status: 'Ready',
+    location: 'Wadi Al Safa 7',
+    area: 'Wadi Al Safa 7, Dubai',
+    beds: 5,
+    baths: 6,
+    size: 3970,
+    paymentPlan: 'Ready to Move / Family Community',
+    handover: 'Ready',
+    image: samaraImg1,
+    gallery: [samaraImg1, samaraImg2, samaraImg3, samaraImg4, samaraImg5],
+    featured: true,
+    view: 'Parks & Landscaped Community View',
+    refNo: 'FV-SAMARA01',
+    completionDate: 'Ready',
+    listedTime: 'Just now',
+    eligibility: 'Freehold (تملك حر لجميع الجنسيات)',
+    serviceCharge: '3.00 AED/ft²',
+    furnishing: 'Semi Furnished with Kitchen Appliances',
+    description:
+      'Samara is a villa residential community by Emaar Properties, located in a green district of Dubai and offering a calm environment for family living away from the city’s fast pace. The project combines privacy, natural surroundings, and convenient connectivity to key areas of the city.\n\nThe community is surrounded by landscaped parks and shaded walkways. The project comprises a collection of low-rise homes with private plots, gardens, and outdoor terraces, creating a seamless connection between indoor spaces and nature.\n\nThe architectural character is defined by gently sloped terracotta-tiled roofs, expressive eaves, and elegant wrought-iron details that highlight the Mediterranean identity of the development. Interiors reinterpret modern Spanish aesthetics through a warm color palette and refined finishes.\n\nSamara offers villas with three, four, and five bedrooms, designed to support comfortable family-oriented living.\n\nResidents have access to a private residents’ club with a modern gym, a swimming pool, a beauty salon, and spa areas. The community is further enhanced by parks, children’s play areas, cycling paths, squash and tennis courts, a football field, barbecue areas, and a restaurant, creating a complete lifestyle environment immersed in nature.',
+    availableUnits: [
+      '5 BR (9,519,888 – 9,532,888 AED) - 3,970 sq.ft.',
+      '3 & 4 Bedroom Villas Available',
+    ],
+    paymentPlans: [
+      'Status: Ready',
+    ],
+    amenities: [
+      'Private residents’ club with gym, pool & spa areas',
+      'Beauty salon & restaurant',
+      'Parks, children’s play areas & cycling paths',
+      'Squash & tennis courts, football field',
+      'Barbecue areas & shaded walkways',
+    ],
+    images: [samaraImg1, samaraImg2, samaraImg3, samaraImg4, samaraImg5],
   },
  ];
 
