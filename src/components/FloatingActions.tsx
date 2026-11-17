@@ -1,6 +1,22 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MessageCircle, X, Send, Sparkles, Phone, ExternalLink } from 'lucide-react';
+
+const WEBHOOK_URL =
+  'https://reliant-relock-absently.ngrok-free.dev/webhook/a1b2c3d4-1111-2222-3333-444455556666/chat';
+
+function getSessionId() {
+  try {
+    let id = localStorage.getItem('fv_chat_session');
+    if (!id) {
+      id = crypto.randomUUID();
+      localStorage.setItem('fv_chat_session', id);
+    }
+    return id;
+  } catch {
+    return String(Date.now());
+  }
+}
 
 export default function FloatingActions() {
   const [chatOpen, setChatOpen] = useState(false);
@@ -9,22 +25,47 @@ export default function FloatingActions() {
     { from: 'bot', text: "Hi! I'm Sara, your Future Vista property advisor. Not sure where to start? I can help you find the perfect home." },
   ]);
   const [input, setInput] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [sessionId] = useState(getSessionId);
+  const bottomRef = useRef<HTMLDivElement>(null);
 
-  const send = (ev: React.FormEvent) => {
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages, loading]);
+
+  const send = async (ev: React.FormEvent) => {
     ev.preventDefault();
-    if (!input.trim()) return;
+    if (!input.trim() || loading) return;
     const text = input.trim();
     setMessages((m) => [...m, { from: 'user', text }]);
     setInput('');
-    setTimeout(() => {
+    setLoading(true);
+
+    try {
+      const res = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'ngrok-skip-browser-warning': 'true',
+        },
+        body: JSON.stringify({ action: 'sendMessage', sessionId, chatInput: text }),
+      });
+      if (!res.ok) throw new Error('Bad response');
+      const data = await res.json();
+      const reply = data.output ?? data.text ?? data.message ?? '';
+      if (!reply) throw new Error('Empty reply');
+      setMessages((m) => [...m, { from: 'bot', text: String(reply) }]);
+    } catch {
       setMessages((m) => [
         ...m,
         {
           from: 'bot',
-          text: "Thanks! I'll connect you with a specialist for that. Drop your number or tap 'Contact Us' below and we'll reach out within 24 hours.",
+          text: "Sorry, I'm having trouble right now. Please tap 'Open Contact Form' below or message us on WhatsApp.",
         },
       ]);
-    }, 700);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -67,7 +108,7 @@ export default function FloatingActions() {
                 className={`flex ${m.from === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  className={`max-w-[80%] rounded-2xl px-3.5 py-2 text-sm ${
+                  className={`max-w-[80%] whitespace-pre-wrap rounded-2xl px-3.5 py-2 text-sm ${
                     m.from === 'user'
                       ? 'rounded-br-sm bg-brand-600 text-white'
                       : 'rounded-bl-sm bg-white text-ink-800 shadow-soft'
@@ -77,6 +118,14 @@ export default function FloatingActions() {
                 </div>
               </div>
             ))}
+            {loading && (
+              <div className="flex justify-start">
+                <div className="rounded-2xl rounded-bl-sm bg-white px-3.5 py-2 text-sm text-ink-400 shadow-soft">
+                  Typing...
+                </div>
+              </div>
+            )}
+            <div ref={bottomRef} />
           </div>
 
           {/* Input */}
@@ -89,7 +138,8 @@ export default function FloatingActions() {
             />
             <button
               type="submit"
-              className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-brand-600 text-white transition-colors hover:bg-brand-700"
+              disabled={loading}
+              className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-brand-600 text-white transition-colors hover:bg-brand-700 disabled:opacity-60"
               aria-label="Send"
             >
               <Send className="h-4 w-4" />
@@ -124,7 +174,7 @@ export default function FloatingActions() {
 
       {/* الأزرار العائمة على اليمين (Bayut + WhatsApp) */}
       <div className="fixed bottom-6 right-4 z-50 flex flex-col items-end gap-3 sm:right-6">
-        
+
         {/* زرار Bayut الأصلي مع لوجو العدسة */}
         <a
           href="https://www.bayut.com/companies/future-vista-real-estate-109945/"
@@ -134,9 +184,9 @@ export default function FloatingActions() {
           aria-label="Our List on Bayut"
         >
           {/* أيقونة لوجو بيوت الرسمية */}
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 100 100" 
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 100 100"
             className="h-8 w-8 shrink-0 transition-transform group-hover:scale-110"
           >
             {/* الدائرة الخارجية للعدسة */}
