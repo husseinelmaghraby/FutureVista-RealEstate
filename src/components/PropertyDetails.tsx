@@ -257,7 +257,7 @@ export default function PropertyDetails() {
                   <MessageCircle className="h-4 w-4" /> WhatsApp Inquiry
                 </a>
                 <a
-                  href="mailto:info@futurevista.ae"
+                  href="mailto:info@futurevistadubai.com"
                   className="flex w-full items-center justify-center gap-2 rounded-full bg-blue-600 px-5 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-600/30 transition-all hover:bg-blue-700 active:scale-[0.98]"
                 >
                   <Mail className="h-4 w-4" /> Message / Email Inquiry
